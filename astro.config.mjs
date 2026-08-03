@@ -7,7 +7,7 @@ const isProjectPage = process.env.GITHUB_ACTIONS === 'true';
 
 export default defineConfig({
   site: process.env.SITE_URL ?? 'https://aixwim.github.io',
-  base: isProjectPage ? `/${repository}` : '/',
+  base: isProjectPage ? `/${repository}/` : '/',
   integrations: [sitemap()],
   output: 'static',
 });

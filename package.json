@@ -11,7 +11,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "sync:drive": "node scripts/sync-google-drive.mjs",
-    "content:check": "node scripts/validate-content.mjs"
+    "content:check": "node scripts/validate-content.mjs",
+    "link:check": "node scripts/check-built-links.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
