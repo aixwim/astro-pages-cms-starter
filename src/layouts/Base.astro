@@ -9,7 +9,11 @@ interface Props {
   publishedAt?: Date;
   updatedAt?: Date;
   image?: string;
+  imageAlt?: string;
   noindex?: boolean;
+  canonicalUrl?: string;
+  author?: string;
+  section?: string;
 }
 
 const {
@@ -19,11 +23,17 @@ const {
   publishedAt,
   updatedAt,
   image = site.socialImage,
+  imageAlt = `Identitas visual ${site.name}`,
   noindex = false,
+  canonicalUrl,
+  author,
+  section,
 } = Astro.props;
 const pageTitle = title === site.name ? title : `${title} - ${site.name}`;
 const base = import.meta.env.BASE_URL;
-const canonical = new URL(Astro.url.pathname, Astro.site);
+const canonical = canonicalUrl
+  ? new URL(canonicalUrl, Astro.site)
+  : new URL(Astro.url.pathname, Astro.site);
 const socialImage = new URL(`${base}${image}`, Astro.site);
 const path = Astro.url.pathname;
 const isActive = (segment: string) =>
@@ -56,11 +66,26 @@ const organizationSchema = {
       })();
     </script>
     <meta name="description" content={description} />
+    {author && <meta name="author" content={author} />}
+    {section && <meta property="article:section" content={section} />}
+    {
+      site.googleSearchConsoleVerification && (
+        <meta
+          name="google-site-verification"
+          content={site.googleSearchConsoleVerification}
+        />
+      )
+    }
+    {
+      site.bingWebmasterVerification && (
+        <meta name="msvalidate.01" content={site.bingWebmasterVerification} />
+      )
+    }
     <meta
       name="robots"
       content={noindex
         ? 'noindex,follow'
-        : 'index,follow,max-image-preview:large'}
+        : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}
     />
     <meta name="theme-color" content="#07111f" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -81,7 +106,7 @@ const organizationSchema = {
     <meta property="og:image" content={socialImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={`Identitas visual ${site.name}`} />
+    <meta property="og:image:alt" content={imageAlt} />
     {
       publishedAt && (
         <meta
@@ -102,6 +127,25 @@ const organizationSchema = {
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+    {
+      site.googleAnalyticsId && (
+        <>
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${site.googleAnalyticsId}`}
+          />
+          <script
+            is:inline
+            define:vars={{ googleAnalyticsId: site.googleAnalyticsId }}
+          >
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push(['js', new Date()]);
+            window.dataLayer.push(['config', googleAnalyticsId]);
+          </script>
+        </>
+      )
+    }
     <script
       type="application/ld+json"
       set:html={JSON.stringify(organizationSchema)}

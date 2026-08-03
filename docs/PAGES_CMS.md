@@ -20,6 +20,18 @@ Pages CMS membaca `.pages.yml` sebagai sumber konfigurasi editor. Buka [app.page
 6. Jalankan **Validate all posts** sebelum publikasi.
 7. Setelah siap, gunakan **Deploy site** atau biarkan push ke `main` menjalankan deployment otomatis.
 
+## Panel SEO dan traffic
+
+Pada setiap posting tersedia field SEO berikut:
+
+- **SEO title** menggantikan judul pencarian ketika memang diperlukan; judul H1 tetap menjadi judul editorial yang terlihat.
+- **SEO meta description** memberi ringkasan unik untuk snippet; Google dapat memilih cuplikan lain jika dianggap lebih relevan.
+- **Focus keyword** hanya untuk perencanaan editorial. Google tidak memakai meta keywords, jadi field ini tidak menghasilkan tag spam.
+- **Canonical URL override** hanya digunakan ketika ada alasan migrasi atau duplikasi yang jelas.
+- **Noindex** untuk draft atau halaman yang tidak boleh muncul di hasil pencarian.
+
+Pada **Site Settings** tersedia token verifikasi Google Search Console dan Bing Webmaster serta Google Analytics 4. Tracking tidak aktif selama ID dikosongkan. Setelah memasukkan token atau Measurement ID, simpan lalu deploy dan verifikasi di layanan masing-masing.
+
 Build juga menjalankan `taxonomy:sync`. Jika kategori, topik, tag, atau nama gambar belum lengkap, pipeline akan melengkapi metadata dari isi artikel lalu menjalankan validasi.
 
 ## Aturan gambar SEO

@@ -41,8 +41,8 @@ const shareUrl = encodeURIComponent(canonical.toString());
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
-  headline: post.data.title,
-  description: post.data.description,
+  headline: post.data.seoTitle ?? post.data.title,
+  description: post.data.seoDescription ?? post.data.description,
   datePublished: post.data.publishedAt.toISOString(),
   dateModified: (post.data.updatedAt ?? post.data.publishedAt).toISOString(),
   inLanguage: 'id-ID',
@@ -94,12 +94,17 @@ const breadcrumbSchema = {
 ---
 
 <Base
-  title={post.data.title}
-  description={post.data.description}
+  title={post.data.seoTitle ?? post.data.title}
+  description={post.data.seoDescription ?? post.data.description}
   type="article"
   publishedAt={post.data.publishedAt}
   updatedAt={post.data.updatedAt}
   image={post.data.image}
+  imageAlt={post.data.imageAlt}
+  canonicalUrl={post.data.canonicalUrl}
+  author={post.data.author}
+  section={topic.name}
+  noindex={post.data.noindex}
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   <script

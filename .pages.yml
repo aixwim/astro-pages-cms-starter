@@ -47,6 +47,25 @@ content:
           type: string,
           required: true,
         }
+      - {
+          name: googleSearchConsoleVerification,
+          label: Google Search Console verification token,
+          type: string,
+          description: Paste only the content value from the HTML verification tag. Leave empty until verified.,
+        }
+      - {
+          name: bingWebmasterVerification,
+          label: Bing Webmaster verification token,
+          type: string,
+          description: Optional verification token. Leave empty if unused.,
+        }
+      - {
+          name: googleAnalyticsId,
+          label: Google Analytics 4 measurement ID,
+          type: string,
+          pattern: '^$|^G-[A-Z0-9]+$',
+          description: Optional. Example G-XXXXXXXXXX. Tracking stays disabled when empty.,
+        }
   - name: posts
     label: Insights
     type: collection
@@ -100,6 +119,33 @@ content:
           path: posts
           extensions: [webp, png, jpg, jpeg]
       - { name: imageAlt, label: Image alt text, type: string, required: true }
+      - name: seoTitle
+        label: SEO title
+        type: string
+        description: 'Optional search title. Keep it clear and specific; do not stuff keywords.'
+        pattern:
+          regex: '^.{20,65}$'
+          message: 'Use 20–65 characters when SEO title is provided.'
+      - name: seoDescription
+        label: SEO meta description
+        type: text
+        description: 'Optional search snippet. Write a unique useful summary, normally 70–170 characters.'
+        pattern:
+          regex: '^.{70,170}$'
+          message: 'Use 70–170 characters when SEO description is provided.'
+      - name: focusKeyword
+        label: Focus keyword
+        type: string
+        description: 'Editorial planning only. Google does not use a meta keywords tag.'
+      - name: canonicalUrl
+        label: Canonical URL override
+        type: string
+        description: 'Leave empty unless this page intentionally canonicalizes to another URL.'
+      - name: noindex
+        label: Hide from search indexing
+        type: boolean
+        default: false
+        description: 'Enable only for drafts or pages that should not appear in search results.'
       - { name: draft, label: Draft, type: boolean, default: false }
       - { name: updatedAt, label: Updated date, type: date }
       - { name: featured, label: Featured, type: boolean, default: false }
