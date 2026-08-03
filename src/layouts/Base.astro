@@ -139,6 +139,10 @@ const organizationSchema = {
           aria-current={isActive('insights/') ? 'page' : undefined}>Artikel</a
         >
         <a
+          href={`${base}topik/`}
+          aria-current={isActive('topik/') ? 'page' : undefined}>Topik</a
+        >
+        <a
           href={`${base}tentang/`}
           aria-current={isActive('tentang/') ? 'page' : undefined}>Tentang</a
         >
@@ -189,6 +193,7 @@ const organizationSchema = {
         <div>
           <strong>Publikasi</strong>
           <a href={`${base}insights/`}>Artikel</a>
+          <a href={`${base}topik/`}>Topik</a>
           <a href={`${base}rss.xml`}>RSS</a>
           <a href={`${base}tentang/`}>Tentang</a>
           <a href={`${base}kontak/`}>Kontak</a>
