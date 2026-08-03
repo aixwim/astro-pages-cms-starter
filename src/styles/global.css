@@ -381,7 +381,6 @@ a {
 .featured-story p {
   color: #c5cad4;
   max-width: 650px;
-  color: var(--muted);
   font-size: 18px;
   line-height: 1.6;
 }
