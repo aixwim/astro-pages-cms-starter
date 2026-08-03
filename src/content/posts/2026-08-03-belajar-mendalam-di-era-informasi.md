@@ -8,6 +8,10 @@ tags: [keamanan, belajar, keterampilan, kreativitas, literasi-digital]
 image: images/posts/belajar-mendalam-di-era-informasi.webp
 imageAlt: 'Ilustrasi editorial untuk Cara Belajar Mendalam di Tengah Arus Informasi yang Tidak Pernah Berhenti'
 featured: false
+seoTitle: ''
+seoDescription: ''
+focusKeyword: ''
+canonicalUrl: ''
 ---
 
 Akses ke informasi belum pernah semudah sekarang. Dalam beberapa menit, kita bisa mengumpulkan puluhan artikel, video, utas, dan buku digital tentang satu topik. Namun, banyaknya bahan tidak otomatis menghasilkan pemahaman. Sering kali kita merasa sibuk belajar, padahal sebagian besar waktu habis untuk berpindah dari satu sumber ke sumber lain.

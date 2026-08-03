@@ -8,6 +8,10 @@ tags: [keamanan, privasi, belajar, literasi-digital]
 image: images/posts/audit-privasi-digital-pribadi.webp
 imageAlt: 'Ilustrasi editorial untuk Audit Privasi Digital Pribadi dalam Satu Jam'
 featured: false
+seoTitle: ''
+seoDescription: ''
+focusKeyword: ''
+canonicalUrl: ''
 ---
 
 Privasi digital jarang hilang karena satu keputusan besar. Lebih sering, risikonya terkumpul dari akun lama, izin aplikasi yang terlupakan, kata sandi berulang, dan informasi pribadi yang dibagikan tanpa meninjau siapa yang bisa melihatnya. Audit singkat tidak akan menghapus semua risiko, tetapi dapat menutup celah yang paling umum.

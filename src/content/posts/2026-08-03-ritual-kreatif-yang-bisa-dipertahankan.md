@@ -8,6 +8,10 @@ tags: [keamanan, karier, belajar, keterampilan, kreativitas]
 image: images/posts/ritual-kreatif-yang-bisa-dipertahankan.webp
 imageAlt: 'Ilustrasi editorial untuk Membangun Ritual Kreatif yang Tetap Hidup di Tengah Kesibukan'
 featured: false
+seoTitle: ''
+seoDescription: ''
+focusKeyword: ''
+canonicalUrl: ''
 ---
 
 Kreativitas sering dibayangkan sebagai ledakan inspirasi: ide datang, suasana mendukung, lalu karya mengalir begitu saja. Pengalaman sehari-hari biasanya jauh lebih biasa. Ada pesan yang harus dibalas, pekerjaan yang belum selesai, dan energi yang berubah-ubah. Dalam kondisi seperti ini, menunggu inspirasi justru membuat kegiatan kreatif makin jarang dilakukan.

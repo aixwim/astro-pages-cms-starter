@@ -108,6 +108,15 @@ for (const file of (await readdir(dir)).filter((name) =>
       /^image:.*$/m,
       (line) => line + "\nimageAlt: '" + imageAlt.replaceAll("'", "''") + "'",
     );
+  for (const field of [
+    'seoTitle',
+    'seoDescription',
+    'focusKeyword',
+    'canonicalUrl',
+  ]) {
+    if (!new RegExp('^' + field + ':', 'm').test(front))
+      front += '\n' + field + ": ''";
+  }
   const next = '---\n' + front + '\n---\n' + body;
   if (next !== source) await writeFile(url, next);
 }

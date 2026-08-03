@@ -8,6 +8,10 @@ tags: [keamanan, karier, belajar, keterampilan, kreativitas]
 image: images/posts/strategi-belajar-keterampilan-baru.webp
 imageAlt: 'Ilustrasi editorial untuk Strategi Belajar Keterampilan Baru di Tengah Jadwal Padat'
 featured: false
+seoTitle: ''
+seoDescription: ''
+focusKeyword: ''
+canonicalUrl: ''
 ---
 
 Keinginan belajar sering runtuh bukan karena kurang motivasi, melainkan karena rencana yang tidak cocok dengan kehidupan sehari-hari. Target “belajar pemrograman” atau “lancar berbahasa asing” terdengar menarik, tetapi terlalu luas untuk menentukan apa yang harus dilakukan malam ini. Saat waktu terbatas, desain latihan jauh lebih penting daripada durasi maraton sesekali.

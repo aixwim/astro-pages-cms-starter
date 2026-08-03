@@ -8,6 +8,10 @@ tags: [ai, keamanan, privasi, karier, belajar]
 image: images/posts/cara-menggunakan-ai-dengan-aman.webp
 imageAlt: 'Ilustrasi editorial untuk Cara Menggunakan AI dengan Aman: Checklist Privasi dan Verifikasi'
 featured: false
+seoTitle: ''
+seoDescription: ''
+focusKeyword: ''
+canonicalUrl: ''
 ---
 
 AI sudah hadir di kotak pencarian, aplikasi menulis, rapat daring, dan perangkat belajar. Kemudahan itu sering membuat orang memasukkan data sebelum memahami ke mana informasi tersebut dikirim. Masalahnya bukan bahwa semua alat AI berbahaya. Risiko muncul ketika jenis data, tujuan penggunaan, dan cara memeriksa hasil tidak ditentukan sejak awal.

@@ -8,6 +8,10 @@ tags: [ai, keamanan, produktivitas, karier, belajar]
 image: images/posts/workflow-ai-untuk-produktivitas-kerja.webp
 imageAlt: 'Ilustrasi editorial untuk Cara Membuat Workflow AI untuk Produktivitas Kerja yang Terukur'
 featured: false
+seoTitle: ''
+seoDescription: ''
+focusKeyword: ''
+canonicalUrl: ''
 ---
 
 Menggunakan AI sesekali dapat mempercepat satu tugas, tetapi belum tentu meningkatkan produktivitas kerja. Waktu yang dihemat saat membuat draf bisa hilang untuk memperbaiki kesalahan, memindahkan format, atau mencari kembali sumber. Karena itu, workflow AI perlu dinilai sebagai satu alur utuh, bukan berdasarkan kecepatan demo.

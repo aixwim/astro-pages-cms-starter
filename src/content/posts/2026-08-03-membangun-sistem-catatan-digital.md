@@ -8,6 +8,10 @@ tags: [keamanan, privasi, produktivitas, karier, keterampilan]
 image: images/posts/membangun-sistem-catatan-digital.webp
 imageAlt: 'Ilustrasi editorial untuk Cara Membangun Sistem Catatan Digital yang Benar-Benar Terpakai'
 featured: true
+seoTitle: ''
+seoDescription: ''
+focusKeyword: ''
+canonicalUrl: ''
 ---
 
 Punya banyak catatan tidak selalu berarti punya pengetahuan yang tertata. Sering kali, ide penting justru tercecer di aplikasi pesan, dokumen tanpa nama, tangkapan layar, dan tab browser yang tak pernah dibuka lagi. Masalah utamanya biasanya bukan kekurangan aplikasi, melainkan tidak adanya kebiasaan yang jelas untuk menangkap, mengolah, dan menemukan kembali informasi.

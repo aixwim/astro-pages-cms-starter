@@ -17,10 +17,22 @@ const posts = defineCollection({
     tags: z.array(z.string()).default([]),
     image: z.string(),
     imageAlt: z.string().min(20).max(180),
-    seoTitle: z.string().min(20).max(65).optional(),
-    seoDescription: z.string().min(70).max(170).optional(),
-    focusKeyword: z.string().max(80).optional(),
-    canonicalUrl: z.string().url().optional(),
+    seoTitle: z.preprocess(
+      (value) => (value === '' ? undefined : value),
+      z.string().min(20).max(65).optional(),
+    ),
+    seoDescription: z.preprocess(
+      (value) => (value === '' ? undefined : value),
+      z.string().min(70).max(170).optional(),
+    ),
+    focusKeyword: z.preprocess(
+      (value) => (value === '' ? undefined : value),
+      z.string().max(80).optional(),
+    ),
+    canonicalUrl: z.preprocess(
+      (value) => (value === '' ? undefined : value),
+      z.string().url().optional(),
+    ),
     noindex: z.boolean().default(false),
     draft: z.boolean().default(false),
     featured: z.boolean().default(false),

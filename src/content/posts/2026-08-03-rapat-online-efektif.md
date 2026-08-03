@@ -8,6 +8,10 @@ tags: [keamanan, produktivitas, karier, kolaborasi]
 image: images/posts/rapat-online-efektif.webp
 imageAlt: 'Ilustrasi editorial untuk Panduan Rapat Online yang Singkat, Jelas, dan Menghasilkan Keputusan'
 featured: false
+seoTitle: ''
+seoDescription: ''
+focusKeyword: ''
+canonicalUrl: ''
 ---
 
 Rapat online yang buruk menghabiskan lebih dari waktu di kalender. Ia memecah fokus, menunda keputusan, dan menghasilkan pekerjaan tambahan karena peserta pulang dengan pemahaman berbeda. Kamera yang bagus atau aplikasi baru tidak menyelesaikan masalah tersebut. Kualitas rapat terutama ditentukan oleh desain percakapan.

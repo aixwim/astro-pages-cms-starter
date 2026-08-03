@@ -8,6 +8,10 @@ tags: [keamanan, kreativitas, literasi-digital]
 image: images/posts/berpikir-kritis-di-internet.webp
 imageAlt: 'Ilustrasi editorial untuk Berpikir Kritis di Internet: Cara Menilai Informasi Sebelum Membagikannya'
 featured: false
+seoTitle: ''
+seoDescription: ''
+focusKeyword: ''
+canonicalUrl: ''
 ---
 
 Internet memberi kita akses cepat ke pengetahuan sekaligus mempercepat penyebaran kekeliruan. Sebuah tangkapan layar dapat kehilangan konteks, grafik dapat memakai skala menyesatkan, dan judul sensasional dapat beredar jauh lebih cepat daripada koreksinya.
