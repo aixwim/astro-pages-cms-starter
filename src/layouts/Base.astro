@@ -52,6 +52,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:card" content="summary" /><title>{pageTitle}</title>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
     <div class="reading-progress" aria-hidden="true"></div>
     <header class="shell nav">
       <a class="brand" href={base} aria-label={`Beranda ${site.name}`}
@@ -65,7 +66,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         >
       </nav>
     </header>
-    <main><slot /></main>
+    <main id="main-content"><slot /></main>
     <footer class="shell footer">
       <div class="footer-brand">
         <a class="brand" href={base}><span>A</span>{site.name}</a>

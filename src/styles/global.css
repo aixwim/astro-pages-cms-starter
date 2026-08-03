@@ -1,11 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap');
 :root {
   --ink: #0b1020;
   --paper: #f3f2ed;
   --lime: #d8ff56;
-  --muted: #6e7280;
+  --muted: #5c6270;
   --line: #d8d7d1;
   --shell: min(1180px, calc(100% - 40px));
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+  --font-display:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -17,7 +22,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-sans);
 }
 a {
   color: inherit;
@@ -38,7 +43,7 @@ a {
   display: flex;
   align-items: center;
   gap: 11px;
-  font: 600 17px Manrope;
+  font: 600 17px var(--font-display);
 }
 .brand span {
   display: grid;
@@ -86,7 +91,7 @@ a {
 }
 .hero h1,
 .page-head h1 {
-  font: 500 clamp(56px, 9vw, 118px)/0.93 Manrope;
+  font: 500 clamp(56px, 9vw, 118px)/0.93 var(--font-display);
   margin: 25px 0;
   letter-spacing: -0.065em;
   max-width: 1050px;
@@ -143,7 +148,7 @@ a {
   padding-left: 40px;
 }
 .metrics strong {
-  font: 500 38px Manrope;
+  font: 500 38px var(--font-display);
 }
 .metrics span {
   color: var(--muted);
@@ -160,7 +165,7 @@ a {
 }
 .section-head h2,
 .cta h2 {
-  font: 500 clamp(40px, 5vw, 68px)/1.05 Manrope;
+  font: 500 clamp(40px, 5vw, 68px)/1.05 var(--font-display);
   letter-spacing: -0.04em;
   max-width: 700px;
   margin: 18px 0 0;
@@ -187,7 +192,7 @@ a {
   color: var(--muted);
 }
 .cards h3 {
-  font: 500 27px Manrope;
+  font: 500 27px var(--font-display);
   margin-top: auto;
 }
 .cards p {
@@ -234,7 +239,7 @@ a {
   border-bottom: 1px solid var(--line);
 }
 .post-list h2 {
-  font: 500 30px Manrope;
+  font: 500 30px var(--font-display);
   margin: 0 0 8px;
 }
 .post-list p,
@@ -250,7 +255,7 @@ a {
   margin: 70px 0;
 }
 .article h1 {
-  font: 500 clamp(44px, 7vw, 78px)/1 Manrope;
+  font: 500 clamp(44px, 7vw, 78px)/1 var(--font-display);
   letter-spacing: -0.05em;
   margin: 20px 0;
 }
@@ -258,17 +263,14 @@ a {
 .prose {
   font-size: 19px;
   line-height: 1.75;
-  color: #4f5564;
+  color: var(--muted);
 }
 .prose h2 {
-  font: 500 34px Manrope;
+  font: 500 34px var(--font-display);
   color: var(--ink);
   margin-top: 50px;
 }
 @media (max-width: 750px) {
-  .nav nav > a:not(.button) {
-    display: none;
-  }
   .hero {
     padding-top: 70px;
   }
@@ -342,7 +344,7 @@ a {
   align-items: end;
 }
 .editorial-hero h1 {
-  font: 500 clamp(52px, 8vw, 104px)/0.95 Manrope;
+  font: 500 clamp(52px, 8vw, 104px)/0.95 var(--font-display);
   margin: 22px 0 0;
   letter-spacing: -0.06em;
 }
@@ -365,11 +367,11 @@ a {
   gap: 50px;
 }
 .feature-mark {
-  font: 500 clamp(130px, 24vw, 300px)/0.7 Manrope;
+  font: 500 clamp(130px, 24vw, 300px)/0.7 var(--font-display);
   color: var(--lime);
 }
 .featured-story h2 {
-  font: 500 clamp(36px, 5vw, 68px)/1.05 Manrope;
+  font: 500 clamp(36px, 5vw, 68px)/1.05 var(--font-display);
   letter-spacing: -0.04em;
   margin: 18px 0;
 }
@@ -392,7 +394,7 @@ a {
   margin-bottom: 45px;
 }
 .section-title h2 {
-  font: 500 clamp(34px, 5vw, 58px) Manrope;
+  font: 500 clamp(34px, 5vw, 58px) var(--font-display);
   margin: 12px 0 0;
 }
 .editorial-grid {
@@ -412,7 +414,7 @@ a {
   padding-left: 30px;
 }
 .story-card h3 {
-  font: 500 25px/1.2 Manrope;
+  font: 500 25px/1.2 var(--font-display);
   margin: 0 0 12px;
 }
 .story-card p {
@@ -433,7 +435,7 @@ a {
   margin-bottom: 12px;
 }
 .editorial-note blockquote {
-  font: 500 clamp(34px, 5vw, 62px)/1.12 Manrope;
+  font: 500 clamp(34px, 5vw, 62px)/1.12 var(--font-display);
   letter-spacing: -0.04em;
   max-width: 900px;
   margin: 25px 0 45px;
@@ -451,7 +453,7 @@ a {
   border: 0;
   background: transparent;
   color: inherit;
-  font: 20px DM Sans;
+  font: 20px var(--font-sans);
   outline: none;
 }
 .search-box kbd {
@@ -503,7 +505,7 @@ a {
   min-height: 250px;
 }
 .about-grid h2 {
-  font: 500 28px Manrope;
+  font: 500 28px var(--font-display);
   margin-top: 70px;
 }
 .about-grid p {
@@ -519,7 +521,7 @@ a {
   margin-bottom: 70px;
 }
 .contact-strip h2 {
-  font: 500 38px Manrope;
+  font: 500 38px var(--font-display);
   margin: 12px 0;
 }
 .footer-meta {
@@ -632,7 +634,7 @@ a {
 }
 .about-manifesto h2,
 .policy-links h2 {
-  font: 500 clamp(34px, 4vw, 54px)/1.12 Manrope;
+  font: 500 clamp(34px, 4vw, 54px)/1.12 var(--font-display);
   letter-spacing: -0.04em;
   margin: 18px 0;
 }
@@ -657,7 +659,7 @@ a {
   padding-left: 35px;
 }
 .trust-panel strong {
-  font: 500 44px Manrope;
+  font: 500 44px var(--font-display);
 }
 .trust-panel span {
   color: var(--muted);
@@ -696,7 +698,7 @@ a {
   border-top: 1px solid var(--line);
 }
 .policy-content h2 {
-  font: 500 30px Manrope;
+  font: 500 30px var(--font-display);
   margin: 0 0 15px;
 }
 .policy-content p,
@@ -739,7 +741,7 @@ a {
   padding: 40px;
 }
 .contact-primary > a {
-  font: 500 clamp(24px, 4vw, 40px) Manrope;
+  font: 500 clamp(24px, 4vw, 40px) var(--font-display);
   display: block;
   margin: 70px 0 25px;
   overflow-wrap: anywhere;
@@ -752,7 +754,7 @@ a {
   padding: 20px;
 }
 .contact-guide h2 {
-  font: 500 34px Manrope;
+  font: 500 34px var(--font-display);
 }
 .contact-guide li {
   padding: 12px 0;
@@ -803,7 +805,7 @@ a {
   align-items: end;
 }
 .archive-hero h1 {
-  font: 500 clamp(52px, 7vw, 92px)/0.98 Manrope;
+  font: 500 clamp(52px, 7vw, 92px)/0.98 var(--font-display);
   letter-spacing: -0.06em;
   margin: 20px 0 0;
   max-width: 780px;
@@ -833,7 +835,7 @@ a {
   border: 0;
   background: transparent;
   color: inherit;
-  font: 500 15px DM Sans;
+  font: 500 15px var(--font-sans);
   padding: 16px 4px;
   outline: 0;
 }
@@ -846,7 +848,7 @@ a {
   border: 1px solid var(--line);
   border-radius: 4px;
   color: var(--muted);
-  font: 11px DM Sans;
+  font: 11px var(--font-sans);
   padding: 4px 8px;
 }
 .archive-section {
@@ -929,14 +931,14 @@ a {
   font-size: 10px;
 }
 .archive-index {
-  font: 500 38px Manrope;
+  font: 500 38px var(--font-display);
   color: #9a9ca3;
 }
 .archive-card__body {
   margin: auto 0;
 }
 .archive-card__body h2 {
-  font: 500 clamp(27px, 3vw, 38px)/1.12 Manrope;
+  font: 500 clamp(27px, 3vw, 38px)/1.12 var(--font-display);
   letter-spacing: -0.035em;
   margin: 36px 0 15px;
 }
@@ -980,7 +982,7 @@ a {
   font-size: 44px;
 }
 .archive-empty h2 {
-  font: 500 30px Manrope;
+  font: 500 30px var(--font-display);
   margin: 15px 0 8px;
 }
 .archive-empty p {
@@ -991,7 +993,7 @@ a {
   border-bottom: 1px solid;
   background: transparent;
   color: inherit;
-  font: 500 14px DM Sans;
+  font: 500 14px var(--font-sans);
   padding: 8px 0;
   cursor: pointer;
 }
@@ -1036,4 +1038,39 @@ a {
     flex-direction: column;
     gap: 3px;
   }
+}
+
+/* Performance and accessibility */
+html {
+  color-scheme: light;
+}
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 12px;
+  left: 12px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 12px 16px;
+  transform: translateY(-150%);
+  transition: transform 0.15s ease;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #718d00;
+  outline-offset: 3px;
+}
+.theme-toggle {
+  min-width: 44px;
+  min-height: 44px;
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+.prose {
+  color: var(--muted);
 }
