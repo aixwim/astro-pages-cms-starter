@@ -132,7 +132,10 @@ for (const file of (await readdir(dir)).filter((name) =>
     if (!new RegExp('^' + field + ':', 'm').test(front))
       front += '\n' + field + ": ''";
   }
-  const seoTitle = title.length <= 65 ? title : title.split(':')[0].trim();
+  const seoTitle =
+    title.length <= 65
+      ? title
+      : (title.split(':')[0].trim().slice(0, 62).trim() + '&').slice(0, 65);
   const seoDescription =
     front.match(/^description:\s*['"]([\s\S]*?)['"]$/m)?.[1] ?? '';
   const focusKeyword = focusBySlug[slug] ?? topic.replaceAll('-', ' ');

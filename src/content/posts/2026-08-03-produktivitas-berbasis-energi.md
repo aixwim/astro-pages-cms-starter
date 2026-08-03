@@ -8,7 +8,7 @@ tags: [produktivitas, karier, keterampilan, kolaborasi]
 image: images/posts/produktivitas-berbasis-energi.webp
 imageAlt: 'Ilustrasi editorial untuk Produktivitas Berbasis Energi: Menata Kerja Tanpa Mengejar Kesibukan'
 featured: false
-seoTitle: 'Produktivitas Berbasis Energi'
+seoTitle: 'Produktivitas Berbasis Energi&'
 seoDescription: 'Pendekatan produktivitas yang menggabungkan prioritas, ritme energi, fokus, dan pemulihan agar pekerjaan penting benar-benar bergerak.'
 focusKeyword: 'produktivitas berbasis energi'
 canonicalUrl: 'https://aixwim.github.io/astro-pages-cms-starter/insights/2026-08-03-produktivitas-berbasis-energi/'

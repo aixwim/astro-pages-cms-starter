@@ -8,7 +8,7 @@ tags: [keamanan, kreativitas, literasi-digital]
 image: images/posts/berpikir-kritis-di-internet.webp
 imageAlt: 'Ilustrasi editorial untuk Berpikir Kritis di Internet: Cara Menilai Informasi Sebelum Membagikannya'
 featured: false
-seoTitle: 'Berpikir Kritis di Internet'
+seoTitle: 'Berpikir Kritis di Internet&'
 seoDescription: 'Kerangka sederhana untuk memeriksa klaim, sumber, konteks, bukti, dan ketidakpastian sebelum mempercayai atau menyebarkan informasi daring.'
 focusKeyword: 'cara berpikir kritis di internet'
 canonicalUrl: 'https://aixwim.github.io/astro-pages-cms-starter/insights/2026-08-03-berpikir-kritis-di-internet/'

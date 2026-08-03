@@ -8,7 +8,7 @@ tags: [keamanan, produktivitas, karier, kolaborasi]
 image: images/posts/rapat-online-efektif.webp
 imageAlt: 'Ilustrasi editorial untuk Panduan Rapat Online yang Singkat, Jelas, dan Menghasilkan Keputusan'
 featured: false
-seoTitle: 'Panduan Rapat Online yang Singkat, Jelas, dan Menghasilkan Keputusan'
+seoTitle: 'Panduan Rapat Online yang Singkat, Jelas, dan Menghasilkan Kep&'
 seoDescription: 'Cara merancang rapat daring dengan agenda, peran, catatan keputusan, dan tindak lanjut yang membuat kolaborasi tim lebih efektif.'
 focusKeyword: 'cara rapat online efektif'
 canonicalUrl: 'https://aixwim.github.io/astro-pages-cms-starter/insights/2026-08-03-rapat-online-efektif/'
