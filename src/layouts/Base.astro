@@ -177,6 +177,14 @@ const organizationSchema = {
       <p class="footer-copy">&copy; {new Date().getFullYear()} {site.name}</p>
     </footer>
     <div class="ui-status sr-only" aria-live="polite"></div>
+    <button
+      class="back-to-top"
+      type="button"
+      aria-label="Kembali ke atas"
+      title="Kembali ke atas"
+    >
+      <span aria-hidden="true"></span>
+    </button>
     <script>
       const root = document.documentElement;
       const themeButton =
@@ -230,6 +238,20 @@ const organizationSchema = {
       addEventListener('resize', () => {
         if (innerWidth > 750) setMenu(false);
       });
+
+      const backToTop =
+        document.querySelector<HTMLButtonElement>('.back-to-top');
+      const syncBackToTop = () => {
+        backToTop?.classList.toggle('is-visible', scrollY > 500);
+      };
+      backToTop?.addEventListener('click', () => {
+        const reduceMotion = matchMedia(
+          '(prefers-reduced-motion: reduce)',
+        ).matches;
+        scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+      });
+      addEventListener('scroll', syncBackToTop, { passive: true });
+      syncBackToTop();
 
       const progress = document.querySelector<HTMLElement>('.reading-progress');
       addEventListener(
