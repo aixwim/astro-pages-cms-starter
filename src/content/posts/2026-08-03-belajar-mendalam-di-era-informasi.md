@@ -5,6 +5,8 @@ publishedAt: 2026-08-03
 category: Pembelajaran
 topic: belajar-keterampilan
 tags: [keamanan, belajar, keterampilan, kreativitas, literasi-digital]
+image: images/posts/belajar-mendalam-di-era-informasi.webp
+imageAlt: 'Ilustrasi editorial untuk Cara Belajar Mendalam di Tengah Arus Informasi yang Tidak Pernah Berhenti'
 featured: false
 ---
 

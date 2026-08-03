@@ -5,6 +5,8 @@ publishedAt: 2026-08-03
 category: Produktivitas
 topic: karier-produktivitas
 tags: [ai, keamanan, produktivitas, karier, belajar]
+image: images/posts/workflow-ai-untuk-produktivitas-kerja.webp
+imageAlt: 'Ilustrasi editorial untuk Cara Membuat Workflow AI untuk Produktivitas Kerja yang Terukur'
 featured: false
 ---
 

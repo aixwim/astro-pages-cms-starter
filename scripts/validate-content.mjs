@@ -31,6 +31,8 @@ for (const file of files) {
     'category',
     'topic',
     'tags',
+    'image',
+    'imageAlt',
     'featured',
   ])
     if (!front[key]) errors.push(`${file}: ${key} wajib diisi`);
@@ -53,6 +55,11 @@ for (const file of files) {
     errors.push(`${file}: topic tidak dikenal`);
   if (!/^\[[^\]]+(?:,[^\]]+){2,}\]$/.test(front.tags ?? ''))
     errors.push(`${file}: minimal tiga tag wajib diisi`);
+  const expectedImage =
+    'images/posts/' +
+    file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '.webp');
+  if (front.image !== expectedImage)
+    errors.push(`${file}: nama image harus SEO dan sama dengan slug posting`);
 }
 if (files.length < 10)
   errors.push(`Jumlah artikel ${files.length}; minimal 10`);

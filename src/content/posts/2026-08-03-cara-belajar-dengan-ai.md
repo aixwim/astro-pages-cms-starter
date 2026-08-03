@@ -5,6 +5,8 @@ publishedAt: 2026-08-03
 category: Pembelajaran
 topic: belajar-keterampilan
 tags: [ai, keamanan, privasi, belajar, keterampilan]
+image: images/posts/cara-belajar-dengan-ai.webp
+imageAlt: 'Ilustrasi editorial untuk Cara Belajar dengan AI Tanpa Kehilangan Kemampuan Berpikir'
 featured: false
 ---
 

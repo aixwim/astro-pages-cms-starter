@@ -5,6 +5,8 @@ publishedAt: 2026-08-03
 category: Produktivitas
 topic: karier-produktivitas
 tags: [keamanan, privasi, produktivitas, karier, keterampilan]
+image: images/posts/membangun-sistem-catatan-digital.webp
+imageAlt: 'Ilustrasi editorial untuk Cara Membangun Sistem Catatan Digital yang Benar-Benar Terpakai'
 featured: true
 ---
 

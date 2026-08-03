@@ -5,6 +5,8 @@ publishedAt: 2026-08-03
 category: Privasi
 topic: ai-teknologi
 tags: [keamanan, privasi, belajar, literasi-digital]
+image: images/posts/audit-privasi-digital-pribadi.webp
+imageAlt: 'Ilustrasi editorial untuk Audit Privasi Digital Pribadi dalam Satu Jam'
 featured: false
 ---
 

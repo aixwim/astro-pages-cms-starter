@@ -5,6 +5,8 @@ publishedAt: 2026-08-03
 category: Literasi Digital
 topic: ai-teknologi
 tags: [keamanan, kreativitas, literasi-digital]
+image: images/posts/berpikir-kritis-di-internet.webp
+imageAlt: 'Ilustrasi editorial untuk Berpikir Kritis di Internet: Cara Menilai Informasi Sebelum Membagikannya'
 featured: false
 ---
 

@@ -53,6 +53,8 @@ for (const file of (await readdir(dir)).filter((name) =>
   let front = match[1];
   const body = match[2];
   const text = (' ' + front + '\n' + body + ' ').toLowerCase();
+  const slug = file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+  const title = front.match(/^title:\s*['"]?(.+?)['"]?$/m)?.[1] ?? slug;
   const currentCategory = front.match(/^category:\s*(.+)$/m)?.[1]?.trim();
   const category =
     !currentCategory || currentCategory === 'Wawasan'
@@ -89,6 +91,22 @@ for (const file of (await readdir(dir)).filter((name) =>
     front = front.replace(
       /^topic:.*$/m,
       (line) => line + '\ntags: [' + tags.join(', ') + ']',
+    );
+  const image = 'images/posts/' + slug + '.webp';
+  const imageAlt = 'Ilustrasi editorial untuk ' + title;
+  if (/^image:/m.test(front))
+    front = front.replace(/^image:.*$/m, 'image: ' + image);
+  else
+    front = front.replace(/^tags:.*$/m, (line) => line + '\nimage: ' + image);
+  if (/^imageAlt:/m.test(front))
+    front = front.replace(
+      /^imageAlt:.*$/m,
+      "imageAlt: '" + imageAlt.replaceAll("'", "''") + "'",
+    );
+  else
+    front = front.replace(
+      /^image:.*$/m,
+      (line) => line + "\nimageAlt: '" + imageAlt.replaceAll("'", "''") + "'",
     );
   const next = '---\n' + front + '\n---\n' + body;
   if (next !== source) await writeFile(url, next);

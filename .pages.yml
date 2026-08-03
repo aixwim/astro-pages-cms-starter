@@ -80,6 +80,8 @@ content:
           default: ai-teknologi,
         }
       - { name: tags, label: Tags, type: string, list: true }
+      - { name: image, label: SEO image, type: image, required: true }
+      - { name: imageAlt, label: Image alt text, type: string, required: true }
       - { name: draft, label: Draft, type: boolean, default: false }
       - { name: updatedAt, label: Updated date, type: date }
       - { name: featured, label: Featured, type: boolean, default: false }

@@ -15,6 +15,8 @@ const posts = defineCollection({
       'belajar-keterampilan',
     ]),
     tags: z.array(z.string()).default([]),
+    image: z.string(),
+    imageAlt: z.string().min(20).max(180),
     draft: z.boolean().default(false),
     featured: z.boolean().default(false),
   }),

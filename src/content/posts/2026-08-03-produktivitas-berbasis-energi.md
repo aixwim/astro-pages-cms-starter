@@ -5,6 +5,8 @@ publishedAt: 2026-08-03
 category: Produktivitas
 topic: karier-produktivitas
 tags: [produktivitas, karier, keterampilan, kolaborasi]
+image: images/posts/produktivitas-berbasis-energi.webp
+imageAlt: 'Ilustrasi editorial untuk Produktivitas Berbasis Energi: Menata Kerja Tanpa Mengejar Kesibukan'
 featured: false
 ---
 

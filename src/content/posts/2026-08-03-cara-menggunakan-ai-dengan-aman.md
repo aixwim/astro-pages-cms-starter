@@ -5,6 +5,8 @@ publishedAt: 2026-08-03
 category: Keamanan
 topic: ai-teknologi
 tags: [ai, keamanan, privasi, karier, belajar]
+image: images/posts/cara-menggunakan-ai-dengan-aman.webp
+imageAlt: 'Ilustrasi editorial untuk Cara Menggunakan AI dengan Aman: Checklist Privasi dan Verifikasi'
 featured: false
 ---
 

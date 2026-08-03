@@ -5,6 +5,8 @@ publishedAt: 2026-08-03
 category: Kreativitas
 topic: belajar-keterampilan
 tags: [keamanan, karier, belajar, keterampilan, kreativitas]
+image: images/posts/ritual-kreatif-yang-bisa-dipertahankan.webp
+imageAlt: 'Ilustrasi editorial untuk Membangun Ritual Kreatif yang Tetap Hidup di Tengah Kesibukan'
 featured: false
 ---
 
