@@ -1,0 +1,30 @@
+name: Pages CMS Validation
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: Pages CMS action payload
+        required: false
+        type: string
+  pull_request:
+    paths:
+      - '.pages.yml'
+      - 'src/content/**'
+      - 'src/data/**'
+      - 'scripts/**'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with: { node-version: 24, cache: npm }
+      - run: npm ci
+      - run: npm run format:check
+      - run: npm run content:check
+      - run: npm run agents:check
+      - run: npm run build
+      - run: npm run link:check
