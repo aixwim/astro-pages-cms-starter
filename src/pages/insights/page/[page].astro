@@ -1,19 +1,35 @@
 ---
 import { getCollection } from 'astro:content';
-import Base from '../../layouts/Base.astro';
-const allPosts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
-  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
-);
-const pageSize = 6;
-const pageIndex = 1;
-const totalPages = Math.ceil(allPosts.length / pageSize);
-const posts = allPosts.slice(0, pageSize);
+import Base from '../../../layouts/Base.astro';
+export async function getStaticPaths() {
+  const allPosts = (
+    await getCollection('posts', ({ data }) => !data.draft)
+  ).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+  const pageSize = 6;
+  const totalPages = Math.ceil(allPosts.length / pageSize);
+  return Array.from({ length: Math.max(0, totalPages - 1) }, (_, index) => {
+    const pageIndex = index + 2;
+    return {
+      params: { page: String(pageIndex) },
+      props: {
+        posts: allPosts.slice(
+          index * pageSize + pageSize,
+          index * pageSize + pageSize * 2,
+        ),
+        pageIndex,
+        totalPages,
+      },
+    };
+  });
+}
+
+const { posts, pageIndex, totalPages } = Astro.props;
 const mins = (body = '') =>
   Math.max(1, Math.ceil(body.trim().split(/\s+/).filter(Boolean).length / 220));
 ---
 
 <Base
-  title="Artikel"
+  title={`Artikel — Halaman ${pageIndex}`}
   description="Jelajahi artikel Aixwim Insights tentang teknologi, kreativitas, pembelajaran, produktivitas, dan kehidupan modern."
 >
   <section class="shell archive-hero">
@@ -43,7 +59,11 @@ const mins = (body = '') =>
     <div class="archive-toolbar">
       <p>
         <strong id="result-count">{posts.length}</strong> artikel tersedia
-      </p><span>Diurutkan dari yang terbaru · Halaman 1 dari {totalPages}</span>
+      </p><span
+        >Diurutkan dari yang terbaru · Halaman {pageIndex} dari {
+          totalPages
+        }</span
+      >
     </div>
     <div class="archive-grid" id="article-list">
       {
@@ -92,7 +112,14 @@ const mins = (body = '') =>
       }
     </div>
     <nav class="pagination" aria-label="Navigasi halaman artikel">
-      <span class="pagination__disabled" aria-disabled="true">‹</span>
+      <a
+        class="pagination__next"
+        href={pageIndex === 2
+          ? `${import.meta.env.BASE_URL}insights/`
+          : `${import.meta.env.BASE_URL}insights/page/${pageIndex - 1}/`}
+        aria-label="Halaman sebelumnya"
+        ><span aria-hidden="true">‹</span> Sebelumnya</a
+      >
       {
         Array.from({ length: totalPages }, (_, index) => {
           const page = index + 1;
@@ -113,10 +140,10 @@ const mins = (body = '') =>
         })
       }
       {
-        totalPages > 1 ? (
+        pageIndex < totalPages ? (
           <a
             class="pagination__next"
-            href={`${import.meta.env.BASE_URL}insights/page/2/`}
+            href={`${import.meta.env.BASE_URL}insights/page/${pageIndex + 1}/`}
             aria-label="Halaman berikutnya"
           >
             Berikutnya <span aria-hidden="true">›</span>
