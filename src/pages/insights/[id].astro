@@ -49,7 +49,7 @@ const schema = {
     url: new URL(base, Astro.site).toString(),
     logo: {
       '@type': 'ImageObject',
-      url: new URL(`${base}favicon.svg`, Astro.site).toString(),
+      url: new URL(base + 'logo.svg', Astro.site).toString(),
     },
   },
 };

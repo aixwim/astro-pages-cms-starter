@@ -50,15 +50,12 @@ a {
   gap: 11px;
   font: 600 17px var(--font-display);
 }
-.brand span {
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  background: var(--surface-dark);
-  color: var(--blue-bright);
-  border-radius: 50%;
-  font-size: 14px;
+.brand > .brand-mark {
+  display: block;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border-radius: 8px;
 }
 .nav nav {
   display: flex;

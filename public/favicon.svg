@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="32" fill="#0b1020"/><path d="M19 45V19h7l12 17V19h7v26h-7L26 28v17z" fill="#d8ff56"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Aixwim</title>
+  <rect width="64" height="64" rx="15" fill="#07111f"/>
+  <path d="M12 48 27 14h10l15 34H41l-3.3-8H25.9l-3.2 8H12Zm17-17h5.7L32 23.7 29 31Z" fill="#f8fafc"/>
+  <path d="m17 51 27-39h9L26 51h-9Z" fill="#2563eb"/>
+</svg>

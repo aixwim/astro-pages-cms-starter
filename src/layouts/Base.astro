@@ -35,7 +35,7 @@ const organizationSchema = {
   '@type': 'Organization',
   name: site.name,
   url: new URL(base, Astro.site).toString(),
-  logo: new URL(`${base}favicon.svg`, Astro.site).toString(),
+  logo: new URL(base + 'logo.svg', Astro.site).toString(),
 };
 ---
 
@@ -65,7 +65,7 @@ const organizationSchema = {
     <meta name="theme-color" content="#07111f" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href={`${base}favicon.svg`} />
+    <link rel="icon" type="image/svg+xml" href={base + 'favicon.svg'} />
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -113,7 +113,13 @@ const organizationSchema = {
     <div class="reading-progress" aria-hidden="true"></div>
     <header class="shell nav">
       <a class="brand" href={base} aria-label={`${site.name}, beranda`}>
-        <span aria-hidden="true">A</span>{site.name}
+        <img
+          class="brand-mark"
+          src={base + 'favicon.svg'}
+          alt=""
+          width="32"
+          height="32"
+        />{site.name}
       </a>
       <button
         class="menu-toggle"
@@ -158,7 +164,13 @@ const organizationSchema = {
     <footer class="shell footer">
       <div class="footer-brand">
         <a class="brand" href={base}
-          ><span aria-hidden="true">A</span>{site.name}</a
+          ><img
+            class="brand-mark"
+            src={base + 'favicon.svg'}
+            alt=""
+            width="32"
+            height="32"
+          />{site.name}</a
         >
         <p>{site.tagline}</p>
       </div>
