@@ -133,9 +133,7 @@ for (const file of (await readdir(dir)).filter((name) =>
       front += '\n' + field + ": ''";
   }
   const seoTitle =
-    title.length <= 65
-      ? title
-      : (title.split(':')[0].trim().slice(0, 62).trim() + '&').slice(0, 65);
+    title.length <= 65 ? title : title.split(':')[0].trim().slice(0, 65).trim();
   const seoDescription =
     front.match(/^description:\s*['"]([\s\S]*?)['"]$/m)?.[1] ?? '';
   const focusKeyword = focusBySlug[slug] ?? topic.replaceAll('-', ' ');

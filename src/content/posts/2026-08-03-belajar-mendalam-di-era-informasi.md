@@ -8,7 +8,7 @@ tags: [keamanan, belajar, keterampilan, kreativitas, literasi-digital]
 image: images/posts/belajar-mendalam-di-era-informasi.webp
 imageAlt: 'Ilustrasi editorial untuk Cara Belajar Mendalam di Tengah Arus Informasi yang Tidak Pernah Berhenti'
 featured: false
-seoTitle: 'Cara Belajar Mendalam di Tengah Arus Informasi yang Tidak Pern&'
+seoTitle: 'Cara Belajar Mendalam di Tengah Arus Informasi yang Tidak Pernah'
 seoDescription: 'Strategi belajar yang membantu mengubah bacaan dan video menjadi pemahaman, melalui pertanyaan, latihan mengingat, penerapan, dan refleksi.'
 focusKeyword: 'cara belajar mendalam'
 canonicalUrl: 'https://aixwim.github.io/astro-pages-cms-starter/insights/2026-08-03-belajar-mendalam-di-era-informasi/'
