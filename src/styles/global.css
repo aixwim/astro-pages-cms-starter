@@ -1265,3 +1265,18 @@ input:focus-visible {
     font-size: 120px;
   }
 }
+
+.theme-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: auto;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  box-shadow: inset -5px -3px 0 var(--paper);
+}
+:root[data-theme='dark'] .theme-icon {
+  box-shadow: none;
+  background: var(--blue-bright);
+  border-color: var(--blue-bright);
+}
