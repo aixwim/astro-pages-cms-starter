@@ -8,10 +8,10 @@ tags: [keamanan, literasi-digital, teknologi-digital]
 image: images/posts/keamanan-digital-praktis.webp
 imageAlt: 'Ilustrasi editorial untuk Keamanan Digital Sehari-hari: Kebiasaan Kecil yang Mengurangi Risiko'
 featured: false
-seoTitle: ''
-seoDescription: ''
-focusKeyword: ''
-canonicalUrl: ''
+seoTitle: 'Keamanan Digital Sehari-hari'
+seoDescription: 'Langkah keamanan digital yang praktis untuk melindungi akun dan data, dari pengelola kata sandi hingga cadangan dan kewaspadaan terhadap penipuan.'
+focusKeyword: 'keamanan digital praktis'
+canonicalUrl: 'https://aixwim.github.io/astro-pages-cms-starter/insights/2026-08-03-keamanan-digital-praktis/'
 ---
 
 Keamanan digital sering terdengar seperti urusan teknis yang hanya relevan bagi perusahaan besar. Padahal, risiko yang paling dekat biasanya sederhana: kata sandi digunakan ulang, perangkat tidak diperbarui, tautan dibuka terburu-buru, atau data penting hanya tersimpan di satu tempat.

@@ -33,6 +33,21 @@ const tagRules = {
   kolaborasi: ['kolaborasi', 'rapat', 'tim'],
   'literasi-digital': ['literasi', 'informasi', 'internet', 'sumber'],
 };
+const focusBySlug = {
+  'audit-privasi-digital-pribadi': 'audit privasi digital',
+  'belajar-mendalam-di-era-informasi': 'cara belajar mendalam',
+  'berpikir-kritis-di-internet': 'cara berpikir kritis di internet',
+  'cara-belajar-dengan-ai': 'cara belajar dengan AI',
+  'cara-menggunakan-ai-dengan-aman': 'cara menggunakan AI dengan aman',
+  'keamanan-digital-praktis': 'keamanan digital praktis',
+  'membangun-sistem-catatan-digital': 'sistem catatan digital',
+  'memilih-alat-ai-untuk-pekerjaan': 'memilih alat AI untuk pekerjaan',
+  'produktivitas-berbasis-energi': 'produktivitas berbasis energi',
+  'rapat-online-efektif': 'cara rapat online efektif',
+  'ritual-kreatif-yang-bisa-dipertahankan': 'ritual kreatif',
+  'strategi-belajar-keterampilan-baru': 'strategi belajar keterampilan baru',
+  'workflow-ai-untuk-produktivitas-kerja': 'AI untuk produktivitas kerja',
+};
 
 function chooseCategory(text) {
   return Object.entries(categoryRules)
@@ -117,6 +132,31 @@ for (const file of (await readdir(dir)).filter((name) =>
     if (!new RegExp('^' + field + ':', 'm').test(front))
       front += '\n' + field + ": ''";
   }
+  const seoTitle = title.length <= 65 ? title : title.split(':')[0].trim();
+  const seoDescription =
+    front.match(/^description:\s*['"]([\s\S]*?)['"]$/m)?.[1] ?? '';
+  const focusKeyword = focusBySlug[slug] ?? topic.replaceAll('-', ' ');
+  const origin = process.env.SITE_URL ?? 'https://aixwim.github.io';
+  const basePath = process.env.BASE_PATH ?? '/astro-pages-cms-starter/';
+  const postId = file.replace(/\.md$/, '');
+  const canonical = new URL(
+    basePath + 'insights/' + postId + '/',
+    origin,
+  ).toString();
+  const yaml = (value) => "'" + value.replaceAll("'", "''") + "'";
+  front = front.replace(/^seoTitle:.*$/m, 'seoTitle: ' + yaml(seoTitle));
+  front = front.replace(
+    /^seoDescription:.*$/m,
+    'seoDescription: ' + yaml(seoDescription),
+  );
+  front = front.replace(
+    /^focusKeyword:.*$/m,
+    'focusKeyword: ' + yaml(focusKeyword),
+  );
+  front = front.replace(
+    /^canonicalUrl:.*$/m,
+    'canonicalUrl: ' + yaml(canonical),
+  );
   const next = '---\n' + front + '\n---\n' + body;
   if (next !== source) await writeFile(url, next);
 }

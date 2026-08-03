@@ -8,10 +8,10 @@ tags: [ai, keamanan, privasi, belajar, keterampilan]
 image: images/posts/cara-belajar-dengan-ai.webp
 imageAlt: 'Ilustrasi editorial untuk Cara Belajar dengan AI Tanpa Kehilangan Kemampuan Berpikir'
 featured: false
-seoTitle: ''
-seoDescription: ''
-focusKeyword: ''
-canonicalUrl: ''
+seoTitle: 'Cara Belajar dengan AI Tanpa Kehilangan Kemampuan Berpikir'
+seoDescription: 'Metode belajar dengan AI sebagai tutor, penguji, dan pemberi umpan balik tanpa menyerahkan proses memahami, mengingat, serta memecahkan masalah.'
+focusKeyword: 'cara belajar dengan AI'
+canonicalUrl: 'https://aixwim.github.io/astro-pages-cms-starter/insights/2026-08-03-cara-belajar-dengan-ai/'
 ---
 
 AI dapat menjelaskan topik yang sama dengan berbagai cara, membuat soal latihan, dan memberi umpan balik dalam hitungan detik. Kemampuan ini berguna, tetapi kemudahan memperoleh jawaban juga dapat menciptakan ilusi belajar: penjelasan terasa masuk akal saat dibaca, lalu sulit diingat atau diterapkan tanpa bantuan.
