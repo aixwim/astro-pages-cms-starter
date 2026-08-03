@@ -55,7 +55,30 @@ content:
       - { name: description, label: Summary, type: text, required: true }
       - { name: publishedAt, label: Published date, type: date, required: true }
       - { name: author, label: Author, type: string, default: Redaksi Aixwim }
-      - { name: category, label: Category, type: string, default: Wawasan }
+      - {
+          name: category,
+          label: Category,
+          type: select,
+          options:
+            [
+              Teknologi,
+              Literasi Digital,
+              Keamanan,
+              Privasi,
+              Produktivitas,
+              Kerja Modern,
+              Pembelajaran,
+              Kreativitas,
+            ],
+          default: Teknologi,
+        }
+      - {
+          name: topic,
+          label: Main topic,
+          type: select,
+          options: [ai-teknologi, karier-produktivitas, belajar-keterampilan],
+          default: ai-teknologi,
+        }
       - { name: tags, label: Tags, type: string, list: true }
       - { name: draft, label: Draft, type: boolean, default: false }
       - { name: updatedAt, label: Updated date, type: date }

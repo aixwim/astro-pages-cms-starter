@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build",
+    "build": "npm run taxonomy:sync && astro check && astro build",
     "preview": "astro preview",
     "check": "astro check",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "sync:drive": "node scripts/sync-google-drive.mjs",
-    "content:check": "node scripts/validate-content.mjs",
+    "content:check": "npm run taxonomy:sync && node scripts/validate-content.mjs",
+    "taxonomy:sync": "node scripts/enrich-taxonomy.mjs",
     "link:check": "node scripts/check-built-links.mjs",
     "agents:check": "node scripts/validate-agents.mjs"
   },

@@ -3,6 +3,8 @@ title: 'Audit Privasi Digital Pribadi dalam Satu Jam'
 description: 'Langkah terukur untuk meninjau akun, izin aplikasi, kata sandi, dan jejak data agar privasi digital lebih terjaga tanpa menjadi rumit.'
 publishedAt: 2026-08-03
 category: Privasi
+topic: ai-teknologi
+tags: [keamanan, privasi, belajar, literasi-digital]
 featured: false
 ---
 

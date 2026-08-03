@@ -3,6 +3,8 @@ title: 'Kerangka Praktis Memilih Alat AI untuk Pekerjaan'
 description: 'Cara mengevaluasi alat AI berdasarkan masalah, mutu hasil, privasi, biaya total, dan risiko integrasi sebelum mengadopsinya di tempat kerja.'
 publishedAt: 2026-08-03
 category: Teknologi
+topic: ai-teknologi
+tags: [ai, keamanan, privasi, produktivitas, karier]
 featured: false
 ---
 

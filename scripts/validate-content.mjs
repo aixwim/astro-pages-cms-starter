@@ -24,7 +24,15 @@ for (const file of files) {
           ];
     }),
   );
-  for (const key of ['title', 'description', 'publishedAt', 'featured'])
+  for (const key of [
+    'title',
+    'description',
+    'publishedAt',
+    'category',
+    'topic',
+    'tags',
+    'featured',
+  ])
     if (!front[key]) errors.push(`${file}: ${key} wajib diisi`);
   if (front.title?.length < 20 || front.title?.length > 80)
     errors.push(`${file}: panjang title harus 20–80 karakter`);
@@ -37,6 +45,14 @@ for (const file of files) {
   if (words < 450) errors.push(`${file}: isi terlalu tipis (${words} kata)`);
   if (!/^## /m.test(match[2]))
     errors.push(`${file}: minimal satu heading H2 diperlukan`);
+  if (
+    !['ai-teknologi', 'karier-produktivitas', 'belajar-keterampilan'].includes(
+      front.topic,
+    )
+  )
+    errors.push(`${file}: topic tidak dikenal`);
+  if (!/^\[[^\]]+(?:,[^\]]+){2,}\]$/.test(front.tags ?? ''))
+    errors.push(`${file}: minimal tiga tag wajib diisi`);
 }
 if (files.length < 10)
   errors.push(`Jumlah artikel ${files.length}; minimal 10`);

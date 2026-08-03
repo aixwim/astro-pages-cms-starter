@@ -3,6 +3,8 @@ title: 'Berpikir Kritis di Internet: Cara Menilai Informasi Sebelum Membagikanny
 description: 'Kerangka sederhana untuk memeriksa klaim, sumber, konteks, bukti, dan ketidakpastian sebelum mempercayai atau menyebarkan informasi daring.'
 publishedAt: 2026-08-03
 category: Literasi Digital
+topic: ai-teknologi
+tags: [keamanan, kreativitas, literasi-digital]
 featured: false
 ---
 

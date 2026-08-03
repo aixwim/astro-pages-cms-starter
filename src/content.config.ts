@@ -9,6 +9,11 @@ const posts = defineCollection({
     updatedAt: z.coerce.date().optional(),
     author: z.string().default('Redaksi Aixwim'),
     category: z.string().default('Wawasan'),
+    topic: z.enum([
+      'ai-teknologi',
+      'karier-produktivitas',
+      'belajar-keterampilan',
+    ]),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
     featured: z.boolean().default(false),
