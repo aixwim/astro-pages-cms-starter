@@ -1,46 +1,87 @@
 ---
 import site from '../data/site.json';
 import '../styles/global.css';
+
 interface Props {
   title?: string;
   description?: string;
   type?: 'website' | 'article';
   publishedAt?: Date;
+  updatedAt?: Date;
+  image?: string;
+  noindex?: boolean;
 }
+
 const {
   title = site.name,
   description = site.description,
   type = 'website',
   publishedAt,
+  updatedAt,
+  image = site.socialImage,
+  noindex = false,
 } = Astro.props;
-const pageTitle = title === site.name ? title : `${title} · ${site.name}`;
+const pageTitle = title === site.name ? title : `${title} - ${site.name}`;
 const base = import.meta.env.BASE_URL;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const socialImage = new URL(`${base}${image}`, Astro.site);
+const path = Astro.url.pathname;
+const isActive = (segment: string) =>
+  segment === ''
+    ? path === base || path === base.slice(0, -1)
+    : path.startsWith(`${base}${segment}`);
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.name,
+  url: new URL(base, Astro.site).toString(),
+  logo: new URL(`${base}favicon.svg`, Astro.site).toString(),
+};
 ---
 
 <!doctype html>
 <html lang="id">
   <head>
-    <meta charset="UTF-8" /><meta
-      name="viewport"
-      content="width=device-width"
-    />
-    <meta name="description" content={description} /><meta
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      (() => {
+        try {
+          const saved = localStorage.getItem('aixwim-theme');
+          const dark =
+            saved === 'dark' ||
+            (!saved && matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        } catch {}
+      })();
+    </script>
+    <meta name="description" content={description} />
+    <meta
       name="robots"
-      content="index,follow,max-image-preview:large"
+      content={noindex
+        ? 'noindex,follow'
+        : 'index,follow,max-image-preview:large'}
     />
-    <meta name="theme-color" content="#0b1020" /><link
-      rel="canonical"
-      href={canonical}
-    /><link rel="icon" href={`${base}favicon.svg`} />
-    <meta property="og:type" content={type} /><meta
-      property="og:site_name"
-      content={site.name}
-    /><meta property="og:locale" content="id_ID" />
-    <meta property="og:title" content={pageTitle} /><meta
-      property="og:description"
-      content={description}
-    /><meta property="og:url" content={canonical} />
+    <meta name="theme-color" content="#07111f" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={`${base}favicon.svg`} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={`${site.name} RSS`}
+      href={`${base}rss.xml`}
+    />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`Identitas visual ${site.name}`} />
     {
       publishedAt && (
         <meta
@@ -49,31 +90,75 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         />
       )
     }
-    <meta name="twitter:card" content="summary" /><title>{pageTitle}</title>
+    {
+      updatedAt && (
+        <meta
+          property="article:modified_time"
+          content={updatedAt.toISOString()}
+        />
+      )
+    }
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(organizationSchema)}
+    />
+    <title>{pageTitle}</title>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
     <div class="reading-progress" aria-hidden="true"></div>
     <header class="shell nav">
-      <a class="brand" href={base}><span>A</span>{site.name}</a>
-      <nav aria-label="Navigasi utama">
-        <a href={base}>Beranda</a><a href={`${base}insights/`}>Artikel</a><a
-          href={`${base}tentang/`}>Tentang</a
-        ><button class="theme-toggle" type="button" aria-label="Ganti tema"
-          >◐</button
+      <a class="brand" href={base} aria-label={`${site.name}, beranda`}>
+        <span aria-hidden="true">A</span>{site.name}
+      </a>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+      >
+        <span class="menu-toggle__icon" aria-hidden="true"></span>
+        <span class="sr-only">Buka menu</span>
+      </button>
+      <nav id="primary-navigation" aria-label="Navigasi utama">
+        <a href={base} aria-current={isActive('') ? 'page' : undefined}
+          >Beranda</a
         >
+        <a
+          href={`${base}insights/`}
+          aria-current={isActive('insights/') ? 'page' : undefined}>Artikel</a
+        >
+        <a
+          href={`${base}tentang/`}
+          aria-current={isActive('tentang/') ? 'page' : undefined}>Tentang</a
+        >
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Aktifkan tema gelap"
+          aria-pressed="false"
+        >
+          <span aria-hidden="true">T</span>
+        </button>
       </nav>
     </header>
     <main id="main-content"><slot /></main>
     <footer class="shell footer">
       <div class="footer-brand">
-        <a class="brand" href={base}><span>A</span>{site.name}</a>
+        <a class="brand" href={base}
+          ><span aria-hidden="true">A</span>{site.name}</a
+        >
         <p>{site.tagline}</p>
       </div>
       <div class="footer-nav">
         <div>
           <strong>Publikasi</strong>
           <a href={`${base}insights/`}>Artikel</a>
+          <a href={`${base}rss.xml`}>RSS</a>
           <a href={`${base}tentang/`}>Tentang</a>
           <a href={`${base}kontak/`}>Kontak</a>
         </div>
@@ -89,23 +174,70 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
           <a href={`${base}ketentuan/`}>Ketentuan</a>
         </div>
       </div>
-      <p class="footer-copy">© {new Date().getFullYear()} {site.name}</p>
+      <p class="footer-copy">&copy; {new Date().getFullYear()} {site.name}</p>
     </footer>
-    <script is:inline>
-      const r = document.documentElement,
-        s = localStorage.getItem('aixwim-theme');
-      if (s) r.dataset.theme = s;
-      document.querySelector('.theme-toggle')?.addEventListener('click', () => {
-        const n = r.dataset.theme === 'dark' ? 'light' : 'dark';
-        r.dataset.theme = n;
-        localStorage.setItem('aixwim-theme', n);
+    <div class="ui-status sr-only" aria-live="polite"></div>
+    <script>
+      const root = document.documentElement;
+      const themeButton =
+        document.querySelector<HTMLButtonElement>('.theme-toggle');
+      const syncThemeButton = () => {
+        const dark = root.dataset.theme === 'dark';
+        themeButton?.setAttribute('aria-pressed', String(dark));
+        themeButton?.setAttribute(
+          'aria-label',
+          dark ? 'Aktifkan tema terang' : 'Aktifkan tema gelap',
+        );
+      };
+      syncThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        localStorage.setItem('aixwim-theme', next);
+        syncThemeButton();
       });
-      const p = document.querySelector('.reading-progress');
+
+      const menuButton =
+        document.querySelector<HTMLButtonElement>('.menu-toggle');
+      const navigation = document.querySelector<HTMLElement>(
+        '#primary-navigation',
+      );
+      const menuLabel = menuButton?.querySelector<HTMLElement>('.sr-only');
+      const setMenu = (open: boolean) => {
+        menuButton?.setAttribute('aria-expanded', String(open));
+        navigation?.classList.toggle('is-open', open);
+        document.body.classList.toggle('menu-open', open);
+        if (menuLabel)
+          menuLabel.textContent = open ? 'Tutup menu' : 'Buka menu';
+      };
+      menuButton?.addEventListener('click', () =>
+        setMenu(menuButton.getAttribute('aria-expanded') !== 'true'),
+      );
+      navigation
+        ?.querySelectorAll('a')
+        .forEach((link) =>
+          link.addEventListener('click', () => setMenu(false)),
+        );
+      addEventListener('keydown', (event) => {
+        if (
+          event.key === 'Escape' &&
+          menuButton?.getAttribute('aria-expanded') === 'true'
+        ) {
+          setMenu(false);
+          menuButton.focus();
+        }
+      });
+      addEventListener('resize', () => {
+        if (innerWidth > 750) setMenu(false);
+      });
+
+      const progress = document.querySelector<HTMLElement>('.reading-progress');
       addEventListener(
         'scroll',
         () => {
-          const m = document.documentElement.scrollHeight - innerHeight;
-          if (p) p.style.transform = `scaleX(${m > 0 ? scrollY / m : 0})`;
+          const maximum = document.documentElement.scrollHeight - innerHeight;
+          if (progress)
+            progress.style.transform = `scaleX(${maximum > 0 ? scrollY / maximum : 0})`;
         },
         { passive: true },
       );

@@ -9,6 +9,8 @@ const posts = defineCollection({
     updatedAt: z.coerce.date().optional(),
     author: z.string().default('Redaksi Aixwim'),
     category: z.string().default('Wawasan'),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
     featured: z.boolean().default(false),
   }),
 });

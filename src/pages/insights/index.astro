@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-const posts = (await getCollection('posts')).sort(
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
 );
 const mins = (body = '') =>
@@ -103,6 +103,10 @@ const mins = (body = '') =>
     const clear = document.querySelector<HTMLButtonElement>('#clear-search');
     const filter = () => {
       const query = input?.value.trim().toLowerCase() ?? '';
+      const url = new URL(location.href);
+      if (query) url.searchParams.set('q', query);
+      else url.searchParams.delete('q');
+      history.replaceState({}, '', url);
       let visible = 0;
       cards.forEach((card) => {
         const matches = !query || card.dataset.search?.includes(query);
@@ -113,6 +117,10 @@ const mins = (body = '') =>
       if (empty) empty.hidden = visible > 0;
     };
     input?.addEventListener('input', filter);
+    if (input) {
+      input.value = new URL(location.href).searchParams.get('q') ?? '';
+      filter();
+    }
     clear?.addEventListener('click', () => {
       if (input) input.value = '';
       filter();

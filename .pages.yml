@@ -56,6 +56,8 @@ content:
       - { name: publishedAt, label: Published date, type: date, required: true }
       - { name: author, label: Author, type: string, default: Redaksi Aixwim }
       - { name: category, label: Category, type: string, default: Wawasan }
+      - { name: tags, label: Tags, type: string, list: true }
+      - { name: draft, label: Draft, type: boolean, default: false }
       - { name: updatedAt, label: Updated date, type: date }
       - { name: featured, label: Featured, type: boolean, default: false }
       - { name: body, label: Content, type: rich-text }
