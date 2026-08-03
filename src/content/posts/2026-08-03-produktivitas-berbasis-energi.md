@@ -2,6 +2,7 @@
 title: 'Produktivitas Berbasis Energi: Menata Kerja Tanpa Mengejar Kesibukan'
 description: 'Pendekatan produktivitas yang menggabungkan prioritas, ritme energi, fokus, dan pemulihan agar pekerjaan penting benar-benar bergerak.'
 publishedAt: 2026-08-03
+category: Produktivitas
 featured: false
 ---
 

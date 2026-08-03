@@ -2,6 +2,7 @@
 title: 'Panduan Rapat Online yang Singkat, Jelas, dan Menghasilkan Keputusan'
 description: 'Cara merancang rapat daring dengan agenda, peran, catatan keputusan, dan tindak lanjut yang membuat kolaborasi tim lebih efektif.'
 publishedAt: 2026-08-03
+category: Kerja Modern
 featured: false
 ---
 

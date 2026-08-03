@@ -2,6 +2,7 @@
 title: 'Cara Membangun Sistem Catatan Digital yang Benar-Benar Terpakai'
 description: 'Panduan praktis merancang sistem catatan digital yang sederhana, mudah dicari, dan tetap berguna saat informasi terus bertambah.'
 publishedAt: 2026-08-03
+category: Produktivitas
 featured: true
 ---
 

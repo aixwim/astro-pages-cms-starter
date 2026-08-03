@@ -2,6 +2,7 @@
 title: 'Cara Belajar Mendalam di Tengah Arus Informasi yang Tidak Pernah Berhenti'
 description: 'Strategi belajar yang membantu mengubah bacaan dan video menjadi pemahaman, melalui pertanyaan, latihan mengingat, penerapan, dan refleksi.'
 publishedAt: 2026-08-03
+category: Pembelajaran
 featured: false
 ---
 

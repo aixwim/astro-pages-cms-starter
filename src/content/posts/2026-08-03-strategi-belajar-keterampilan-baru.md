@@ -2,6 +2,7 @@
 title: 'Strategi Belajar Keterampilan Baru di Tengah Jadwal Padat'
 description: 'Panduan menyusun latihan kecil, umpan balik, dan proyek nyata agar proses belajar konsisten meski waktu setiap hari terbatas.'
 publishedAt: 2026-08-03
+category: Pembelajaran
 featured: false
 ---
 

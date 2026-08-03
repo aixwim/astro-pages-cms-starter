@@ -4,76 +4,130 @@ import Base from '../../layouts/Base.astro';
 const posts = (await getCollection('posts')).sort(
   (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
 );
-const mins = (b = '') =>
-  Math.max(1, Math.ceil(b.trim().split(/\s+/).filter(Boolean).length / 220));
+const mins = (body = '') =>
+  Math.max(1, Math.ceil(body.trim().split(/\s+/).filter(Boolean).length / 220));
 ---
 
 <Base
   title="Artikel"
-  description="Artikel Aixwim Insights tentang teknologi, kreativitas, pembelajaran, dan kehidupan modern."
+  description="Jelajahi artikel Aixwim Insights tentang teknologi, kreativitas, pembelajaran, produktivitas, dan kehidupan modern."
 >
-  <section class="shell page-head">
-    <span class="eyebrow">Arsip pengetahuan</span><h1>
-      Temukan gagasan yang <em>relevan.</em>
-    </h1><label class="search-box"
-      ><span class="sr-only">Cari artikel</span><input
-        id="article-search"
-        type="search"
-        placeholder="Cari topik atau kata kunci…"
-      /><kbd>/</kbd></label
-    >
+  <section class="shell archive-hero">
+    <div>
+      <span class="eyebrow">Arsip Aixwim Insights</span><h1>
+        Gagasan untuk dibaca <em>perlahan.</em>
+      </h1>
+    </div>
+    <div class="archive-intro">
+      <p>
+        Panduan, kerangka berpikir, dan perspektif praktis untuk membantu Anda
+        bekerja, belajar, dan mengambil keputusan dengan lebih jernih.
+      </p>
+      <label class="archive-search"
+        ><span aria-hidden="true">⌕</span><span class="sr-only"
+          >Cari artikel</span
+        ><input
+          id="article-search"
+          type="search"
+          placeholder="Cari judul, topik, atau kata kunci"
+          autocomplete="off"
+        /><kbd>/</kbd></label
+      >
+    </div>
   </section>
-  <section class="shell post-list" id="article-list">
-    {
-      posts.map((post) => (
-        <a
-          href={`${import.meta.env.BASE_URL}insights/${post.id}/`}
-          data-search={`${post.data.title} ${post.data.description}`.toLowerCase()}
-        >
-          <>
-            <div class="story-meta">
-              <>
-                <time>
-                  {post.data.publishedAt.toLocaleDateString('id-ID', {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric',
-                  })}
-                </time>
-                <span>{mins(post.body)} menit baca</span>
-              </>
-            </div>
-            <div>
-              <>
-                <h2>{post.data.title}</h2>
-                <p>{post.data.description}</p>
-              </>
-            </div>
-            <span>↗</span>
-          </>
-        </a>
-      ))
-    }<p class="empty-state" hidden>Tidak ada artikel yang cocok.</p>
+  <section class="shell archive-section" aria-live="polite">
+    <div class="archive-toolbar">
+      <p>
+        <strong id="result-count">{posts.length}</strong> artikel tersedia
+      </p><span>Diurutkan dari yang terbaru</span>
+    </div>
+    <div class="archive-grid" id="article-list">
+      {
+        posts.map((post, index) => (
+          <article
+            class:list={['archive-card', { 'archive-card--lead': index === 0 }]}
+            data-search={`${post.data.title} ${post.data.description} ${post.data.category}`.toLowerCase()}
+          >
+            <a href={`${import.meta.env.BASE_URL}insights/${post.id}/`}>
+              <div class="archive-card__top">
+                <>
+                  <span class="archive-category">{post.data.category}</span>
+                  <span class="archive-index">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                </>
+              </div>
+              <div class="archive-card__body">
+                <>
+                  <h2>{post.data.title}</h2>
+                  <p>{post.data.description}</p>
+                </>
+              </div>
+              <div class="archive-card__footer">
+                <>
+                  <div>
+                    <>
+                      <time datetime={post.data.publishedAt.toISOString()}>
+                        {post.data.publishedAt.toLocaleDateString('id-ID', {
+                          day: 'numeric',
+                          month: 'short',
+                          year: 'numeric',
+                        })}
+                      </time>
+                      <span>{mins(post.body)} menit baca</span>
+                    </>
+                  </div>
+                  <span class="archive-arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                </>
+              </div>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+    <div class="archive-empty" id="empty-state" hidden>
+      <span aria-hidden="true">⌕</span><h2>Artikel belum ditemukan</h2><p>
+        Coba gunakan kata kunci yang lebih singkat atau topik lain.
+      </p><button type="button" id="clear-search"
+        >Tampilkan semua artikel</button
+      >
+    </div>
   </section>
   <script>
-    const i = document.querySelector<HTMLInputElement>('#article-search'),
-      a = [...document.querySelectorAll<HTMLElement>('#article-list>a')],
-      e = document.querySelector<HTMLElement>('.empty-state');
-    const f = () => {
-      const q = i?.value.trim().toLowerCase() ?? '';
-      let v = 0;
-      a.forEach((x) => {
-        const m = !q || x.dataset.search?.includes(q);
-        x.hidden = !m;
-        if (m) v++;
+    const input = document.querySelector<HTMLInputElement>('#article-search');
+    const cards = [...document.querySelectorAll<HTMLElement>('.archive-card')];
+    const empty = document.querySelector<HTMLElement>('#empty-state');
+    const count = document.querySelector<HTMLElement>('#result-count');
+    const clear = document.querySelector<HTMLButtonElement>('#clear-search');
+    const filter = () => {
+      const query = input?.value.trim().toLowerCase() ?? '';
+      let visible = 0;
+      cards.forEach((card) => {
+        const matches = !query || card.dataset.search?.includes(query);
+        card.hidden = !matches;
+        if (matches) visible += 1;
       });
-      if (e) e.hidden = v > 0;
+      if (count) count.textContent = String(visible);
+      if (empty) empty.hidden = visible > 0;
     };
-    i?.addEventListener('input', f);
-    addEventListener('keydown', (x) => {
-      if (x.key === '/' && document.activeElement !== i) {
-        x.preventDefault();
-        i?.focus();
+    input?.addEventListener('input', filter);
+    clear?.addEventListener('click', () => {
+      if (input) input.value = '';
+      filter();
+      input?.focus();
+    });
+    addEventListener('keydown', (event) => {
+      if (
+        event.key === '/' &&
+        document.activeElement !== input &&
+        !['INPUT', 'TEXTAREA'].includes(
+          (document.activeElement as HTMLElement)?.tagName,
+        )
+      ) {
+        event.preventDefault();
+        input?.focus();
       }
     });
   </script>

@@ -2,6 +2,7 @@
 title: 'Membangun Ritual Kreatif yang Tetap Hidup di Tengah Kesibukan'
 description: 'Panduan praktis membangun kebiasaan kreatif yang realistis, mulai dari mengurangi hambatan hingga mengevaluasi proses tanpa terjebak tuntutan sempurna.'
 publishedAt: 2026-08-03
+category: Kreativitas
 featured: false
 ---
 
