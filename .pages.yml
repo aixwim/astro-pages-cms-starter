@@ -1,0 +1,58 @@
+media:
+  - name: images
+    label: Images
+    input: public/images
+    output: /images
+    rename: safe
+    categories: [image]
+  - name: drive
+    label: Google Drive Sync
+    input: public/drive
+    output: /drive
+    rename: safe
+
+settings:
+  content:
+    merge: true
+  commit:
+    templates:
+      create: 'content: create {filename}'
+      update: 'content: update {filename}'
+      delete: 'content: remove {filename}'
+
+content:
+  - name: site
+    label: Site Settings
+    type: file
+    path: src/data/site.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - { name: name, label: Brand name, type: string, required: true }
+      - { name: tagline, label: Tagline, type: string, required: true }
+      - { name: description, label: Description, type: text, required: true }
+      - { name: email, label: Contact email, type: string, required: true }
+      - {
+          name: driveUrl,
+          label: Google Drive URL,
+          type: string,
+          required: true,
+        }
+  - name: posts
+    label: Insights
+    type: collection
+    path: src/content/posts
+    format: yaml-frontmatter
+    filename: '{year}-{month}-{day}-{primary}.md'
+    view:
+      primary: title
+      fields: [title, publishedAt, featured]
+      sort: publishedAt
+      order: desc
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Summary, type: text, required: true }
+      - { name: publishedAt, label: Published date, type: date, required: true }
+      - { name: featured, label: Featured, type: boolean, default: false }
+      - { name: body, label: Content, type: rich-text }
