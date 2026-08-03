@@ -97,6 +97,9 @@ const mins = (body = '') =>
   </section>
   <script>
     const input = document.querySelector<HTMLInputElement>('#article-search');
+    if (location.hash === '#article-search') {
+      requestAnimationFrame(() => input?.focus());
+    }
     const cards = [...document.querySelectorAll<HTMLElement>('.archive-card')];
     const empty = document.querySelector<HTMLElement>('#empty-state');
     const count = document.querySelector<HTMLElement>('#result-count');

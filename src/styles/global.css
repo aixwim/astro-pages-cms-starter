@@ -1406,3 +1406,52 @@ input:focus-visible {
     justify-content: flex-start;
   }
 }
+
+/* Header search action */
+.nav-search {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+.nav-search:hover {
+  border-color: var(--blue);
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+.nav-search span {
+  position: relative;
+  display: block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+.nav-search span::after {
+  position: absolute;
+  right: -5px;
+  bottom: -3px;
+  width: 7px;
+  height: 2px;
+  background: currentColor;
+  content: '';
+  transform: rotate(45deg);
+  transform-origin: left center;
+}
+@media (max-width: 750px) {
+  .nav nav > .nav-search {
+    display: grid;
+    position: absolute;
+    right: 66px;
+    bottom: 14px;
+    padding: 0;
+  }
+}
