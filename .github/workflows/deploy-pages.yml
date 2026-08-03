@@ -22,7 +22,7 @@ jobs:
       - run: npm run format:check
       - run: npm run content:check
       - run: npm run agents:check
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
         id: pages
       - run: npm run build
         env:
