@@ -164,19 +164,6 @@ content:
           title: Validate all posts?
           message: Run the content, taxonomy, build, and link checks.
           button: Run validation
-  - name: robots
-    label: Robots.txt
-    type: file
-    path: public/robots.txt
-    format: raw
-    operations:
-      delete: false
-    actions:
-      - name: validate-site
-        label: Validate site
-        workflow: pages-cms-validate.yml
-        ref: current
-
 actions:
   - name: deploy-site
     label: Deploy site

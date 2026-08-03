@@ -2,7 +2,12 @@ import { access, readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 const root = path.resolve('dist');
 const repository = process.env.GITHUB_REPOSITORY?.split('/')[1];
-const base = repository ? '/' + repository + '/' : '/';
+const automaticBase = repository ? '/' + repository + '/' : '/';
+const configuredBase = process.env.BASE_PATH || automaticBase;
+const base =
+  configuredBase === '/'
+    ? '/'
+    : '/' + configuredBase.replace(/^\/+|\/+$/g, '') + '/';
 const html = [];
 async function walk(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {

@@ -25,7 +25,7 @@ Open [Pages CMS](https://app.pagescms.org/), sign in with GitHub, install its Gi
 
 ## GitHub Pages
 
-The deployment workflow builds every push to `main`. In **Settings → Pages**, choose **GitHub Actions** as the source. The repository base path is calculated automatically.
+The deployment workflow builds every push to `main`. In **Settings → Pages**, choose **GitHub Actions** as the source. The repository base path is calculated automatically. For a custom domain, set repository variables `SITE_URL` (for example `https://www.example.com`) and `BASE_PATH` to `/`; leave `BASE_PATH` empty for a project-page path. The generated `robots.txt` and sitemap follow these values automatically.
 
 ## Google Drive integration
 
