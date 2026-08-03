@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Interaction Engineer Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Membangun interaksi robust dan progresif.
 
 ## Mode and ownership
 
 Default mode: **implementation**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Menu, search, theme, share, comments, feedback.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak menambah framework tanpa bukti. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+State machine, fallback, test cases.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Keyboard dan failure states. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

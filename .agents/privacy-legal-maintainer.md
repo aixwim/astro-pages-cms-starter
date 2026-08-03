@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Privacy Legal Maintainer Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Menjaga minimisasi data, consent, dan legal pages.
 
 ## Mode and ownership
 
 Default mode: **implementation**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Data flow, vendor, retention, policy delta.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Bukan penasihat hukum atau pemilih vendor. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Privacy impact dan decision log.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Cocokkan fitur dengan legal pages. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

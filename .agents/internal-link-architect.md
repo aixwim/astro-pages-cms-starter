@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Internal Link Architect Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Membangun navigasi kontekstual dan mencegah orphan.
 
 ## Mode and ownership
 
-Default mode: **implementation**.
+Default mode: **audit/read-only**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Source-target, anchor, hub, trust pages.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak membuat anchor manipulatif. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Link matrix dan orphan report.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+npm run link:check. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Design System Curator Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Mengelola token dan state komponen.
 
 ## Mode and ownership
 
-Default mode: **implementation**.
+Default mode: **audit/read-only**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Color, type, spacing, radius, shadow, contrast.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak mengubah flow atau copy. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Token proposal dan state matrix.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Kontras WCAG light-dark. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Responsive Mobile Specialist Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Memastikan UX dari 320px hingga desktop.
 
 ## Mode and ownership
 
 Default mode: **implementation**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Breakpoint, nav, cards, media, controls.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak merusak desktop atau brand. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Breakpoint matrix dan CSS patch.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Uji 320/375/768/1280. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

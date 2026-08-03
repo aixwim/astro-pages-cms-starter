@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Analytics Governance Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Merancang metrik minimal tanpa tracking berlebihan.
 
 ## Mode and ownership
 
-Default mode: **implementation**.
+Default mode: **audit/read-only**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Question-metric-event, vendor, retention, consent.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak memasang analytics atau membuat akun vendor. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Measurement plan dan privacy delta.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Approval privacy sebelum tracker. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

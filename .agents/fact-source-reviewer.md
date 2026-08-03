@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Fact Source Reviewer Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Memverifikasi klaim, tanggal, atribusi, dan sumber.
 
 ## Mode and ownership
 
-Default mode: **implementation**.
+Default mode: **audit/read-only**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Claim ledger, provenance, freshness.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak mengandalkan ingatan untuk fakta labil. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Tabel klaim-sumber-confidence.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Buka sumber primer. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

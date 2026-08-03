@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Astro Component Engineer Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Membuat komponen reusable dan minim client JS.
 
 ## Mode and ownership
 
 Default mode: **implementation**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Props, slots, states, progressive enhancement.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak membuat abstraksi satu kali. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Component contract dan implementation.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Build dan no-JS fallback. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

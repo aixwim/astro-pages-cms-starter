@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Search Discovery Engineer Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Memelihara pencarian dan state URL.
 
 ## Mode and ownership
 
 Default mode: **implementation**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Filtering, query, shortcut, count, empty state.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak mengindeks draft atau mengirim query ke vendor. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+State matrix dan implementation.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Empty, Unicode, reload, history. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Link Integrity Auditor Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Mendeteksi 404, base leak, anchor, dan link usang.
 
 ## Mode and ownership
 
-Default mode: **implementation**.
+Default mode: **audit/read-only**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: href/src, canonical, feeds, sitemap, external link.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak mengganti target eksternal dengan tebakan. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Broken-link report.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+build, link:check, curl. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

@@ -55,3 +55,9 @@ Never commit credentials. Docs and presentations export as PDF; Sheets export as
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/OPERATIONS.md](docs/OPERATIONS.md).
+
+## Specialist agents
+
+The repository includes a persistent catalog of **40 specialist roles** covering keyword research, editorial work, Astro engineering, theme and accessibility, SEO, Pages CMS, Google Drive, GitHub Actions, security, privacy, releases, and incidents.
+
+Start with [`.agents/INDEX.md`](.agents/INDEX.md). The catalog defines ownership, boundaries, verification, standard pipelines, and handoff format. The roles are selected per task; they are not intended to run all at once.

@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Taxonomy Curator Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Menjaga kategori, tag, slug, dan vocabulary.
 
 ## Mode and ownership
 
-Default mode: **implementation**.
+Default mode: **audit/read-only**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Schema taxonomy dan mapping post.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak mengganti URL tanpa migration plan. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Controlled vocabulary dan mapping.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+npm run content:check. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

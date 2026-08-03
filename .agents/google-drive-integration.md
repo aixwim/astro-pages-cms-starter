@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Google Drive Integration Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Mengelola ingest Drive read-only dan hak aset.
 
 ## Mode and ownership
 
 Default mode: **implementation**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Manifest, export, provenance, license, review queue.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak mengubah Drive, mengambil PII, atau publish tanpa review. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Eligible/blocked manifest dan sync plan.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Read-only sync dan rights proof. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

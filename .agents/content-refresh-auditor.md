@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Content Refresh Auditor Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Menemukan konten usang, tipis, atau tumpang tindih.
 
 ## Mode and ownership
 
-Default mode: **implementation**.
+Default mode: **audit/read-only**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Freshness, source, overlap, update priority.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak mengubah tanggal agar tampak baru. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Refresh queue dan scope.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Cek updatedAt dan sumber. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

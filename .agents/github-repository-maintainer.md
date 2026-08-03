@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Github Repository Maintainer Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Menjaga hygiene repository dan workflow kontributor.
 
 ## Mode and ownership
 
 Default mode: **implementation**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Templates, gitignore, structure, settings proposal.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak force push, ubah visibility, atau access. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Focused commit dan hygiene report.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+git status dan diff --check. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

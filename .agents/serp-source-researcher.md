@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Serp Source Researcher Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Menganalisis SERP dan sumber primer terkini.
 
 ## Mode and ownership
 
-Default mode: **implementation**.
+Default mode: **audit/read-only**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Format hasil, gap, entitas, sumber resmi.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak menyalin pesaing atau mengedit post. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+SERP dossier dan source ledger.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Browsing dan sumber primer. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

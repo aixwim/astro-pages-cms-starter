@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Dependency Maintainer Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Mengelola update npm dan Actions bertahap.
 
 ## Mode and ownership
 
 Default mode: **implementation**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Lockfile, versions, changelog, compatibility.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak major upgrade atau auto-merge tanpa approval. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Update batch dan rollback notes.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+npm ci dan build. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Comments Community Engineer Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Menjaga Giscus, sharing, consent, dan moderasi.
 
 ## Mode and ownership
 
 Default mode: **implementation**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: IDs, lazy load, theme sync, fallback, privacy.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak memasang tracker atau mengekspos token. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Integration dan moderation checklist.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Giscus API dan build. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

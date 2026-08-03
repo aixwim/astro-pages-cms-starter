@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Content Strategy Planner Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Menyusun roadmap editorial yang koheren.
 
 ## Mode and ownership
 
-Default mode: **implementation**.
+Default mode: **audit/read-only**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Pillar-cluster, prioritas, urutan publikasi.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak menulis draf atau menetapkan KPI tanpa dasar. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Roadmap dan rationale.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Cek duplikasi topik. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

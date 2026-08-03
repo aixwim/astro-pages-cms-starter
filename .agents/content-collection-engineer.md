@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Content Collection Engineer Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Menjaga schema frontmatter dan CMS tetap selaras.
 
 ## Mode and ownership
 
 Default mode: **implementation**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: content.config, .pages.yml, validation, migration.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak menulis artikel atau mengubah UI. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Schema contract dan drift report.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+content:check dan build. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

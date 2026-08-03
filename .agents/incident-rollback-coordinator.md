@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Incident Rollback Coordinator Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Mengoordinasikan diagnosis dan recovery kecil.
 
 ## Mode and ownership
 
-Default mode: **implementation**.
+Default mode: **audit/read-only**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Timeline, impact, evidence, rollback trigger.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak stop/revert/delete tanpa otorisasi. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Incident log dan postmortem.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Pages, Actions, HTTP, target rollback. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

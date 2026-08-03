@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Image Asset Optimizer Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Menyiapkan gambar ringan, berizin, dan aksesibel.
 
 ## Mode and ownership
 
 Default mode: **implementation**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Format, compression, dimensions, alt, rights proof.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak menerbitkan aset tanpa hak pakai. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Asset output, size diff, provenance.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Dimensi, bytes, URL build. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

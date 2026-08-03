@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Audience Intent Researcher Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Memetakan masalah, bahasa, pertanyaan, dan jobs-to-be-done pembaca Indonesia.
 
 ## Mode and ownership
 
-Default mode: **implementation**.
+Default mode: **audit/read-only**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Riset audiens, intent, pain point, pertanyaan.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak memilih keyword final atau menulis artikel. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Audience-intent brief dengan bukti.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Sumber dan tanggal akses. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

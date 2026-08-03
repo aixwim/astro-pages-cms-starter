@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Documentation Runbook Writer Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Menjaga docs sesuai implementasi aktual.
 
 ## Mode and ownership
 
 Default mode: **implementation**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: README, operations, editorial, release, recovery.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak memasukkan secret atau kebijakan tanpa owner. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Doc drift dan update terverifikasi.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Jalankan command terdokumentasi. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

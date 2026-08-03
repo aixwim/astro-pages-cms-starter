@@ -21,6 +21,7 @@ jobs:
       - run: npm ci
       - run: npm run format:check
       - run: npm run content:check
+      - run: npm run agents:check
       - uses: actions/configure-pages@v5
         id: pages
       - run: npm run build

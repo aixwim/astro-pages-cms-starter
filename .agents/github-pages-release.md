@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Github Pages Release Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Menjaga build, artifact, base path, dan deploy Pages.
 
 ## Mode and ownership
 
 Default mode: **implementation**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: SITE_URL, artifact, 404, feed, sitemap, smoke.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak mengubah DNS atau deploy tanpa otorisasi. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Deploy report dan rollback path.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+build, link, curl, gh run. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

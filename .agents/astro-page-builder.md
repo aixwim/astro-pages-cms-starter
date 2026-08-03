@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Astro Page Builder Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Membangun route Astro semantik dan typed.
 
 ## Mode and ownership
 
 Default mode: **implementation**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: src/pages, composition, metadata, empty state.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak mengubah schema atau token sepihak. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Halaman dan route test cases.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+build dan link:check. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

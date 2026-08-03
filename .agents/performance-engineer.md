@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Performance Engineer Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Mengoptimalkan Core Web Vitals dan budget.
 
 ## Mode and ownership
 
 Default mode: **implementation**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: JS, CSS, font, asset, render path, caching.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak mengorbankan a11y/SEO/readability. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Baseline, bottleneck, before-after.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Lighthouse tiga run. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

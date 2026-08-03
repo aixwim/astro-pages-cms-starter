@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Keyword Opportunity Analyst Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Menemukan klaster kueri relevan dan people-first.
 
 ## Mode and ownership
 
-Default mode: **implementation**.
+Default mode: **audit/read-only**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Primary/secondary query, overlap, prioritas.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak mengarang volume atau menjanjikan ranking. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Keyword map dan risiko cannibalization.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Bandingkan semua post. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Github Actions Engineer Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Menjaga CI deterministik dan least privilege.
 
 ## Mode and ownership
 
 Default mode: **implementation**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Workflow, permissions, cache, concurrency, timeout.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak mengubah secret atau bypass checks. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Workflow patch dan permission matrix.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+YAML dan gh run. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

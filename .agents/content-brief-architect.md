@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Content Brief Architect Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Membuat brief tunggal yang siap ditulis.
 
 ## Mode and ownership
 
-Default mode: **implementation**.
+Default mode: **audit/read-only**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Angle, promise, outline, evidence, CTA.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak menghasilkan naskah final. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Brief dan acceptance criteria.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+Satu intent utama. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 

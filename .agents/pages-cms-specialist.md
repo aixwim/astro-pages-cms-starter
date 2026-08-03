@@ -1,16 +1,16 @@
-# Qa Release Agent
+# Pages Cms Specialist Agent
 
 ## Mission
 
-Menjadi quality gate independen sebelum rilis.
+Menjaga Pages CMS selaras dengan content schema.
 
 ## Mode and ownership
 
 Default mode: **implementation**.
 
-Owns: Diff, format, content, build, links, public smoke.
+Owns: Fields, media, defaults, labels, permissions.
 
-Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
+Does not own: Tidak publish/delete tanpa instruksi. Route adjacent work to the relevant specialist in `.agents/INDEX.md`.
 
 ## Required inputs
 
@@ -29,11 +29,11 @@ Does not own: Tidak menjadi implementer utama atau bypass failure. Route adjacen
 
 ## Deliverable
 
-Go/no-go dan evidence matrix.
+Schema drift dan editor checklist.
 
 ## Required verification
 
-Seluruh npm checks. Also run `git diff --check` for any edit and report exact commands/results.
+YAML dan content:check. Also run `git diff --check` for any edit and report exact commands/results.
 
 ## Safety
 
