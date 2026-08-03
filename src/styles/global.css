@@ -375,7 +375,11 @@ a {
   letter-spacing: -0.04em;
   margin: 18px 0;
 }
+.featured-story .story-meta {
+  color: #c5cad4;
+}
 .featured-story p {
+  color: #c5cad4;
   max-width: 650px;
   color: var(--muted);
   font-size: 18px;

@@ -55,9 +55,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
     <div class="reading-progress" aria-hidden="true"></div>
     <header class="shell nav">
-      <a class="brand" href={base} aria-label={`Beranda ${site.name}`}
-        ><span>A</span>{site.name}</a
-      >
+      <a class="brand" href={base}><span>A</span>{site.name}</a>
       <nav aria-label="Navigasi utama">
         <a href={base}>Beranda</a><a href={`${base}insights/`}>Artikel</a><a
           href={`${base}tentang/`}>Tentang</a
