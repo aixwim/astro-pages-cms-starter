@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+---
+
+<Base
+  title="Ketentuan Penggunaan"
+  description="Ketentuan penggunaan konten dan layanan publikasi Aixwim Insights."
+>
+  <section class="shell page-head legal-head">
+    <span class="eyebrow">Ketentuan Penggunaan</span><h1>
+      Gunakan pengetahuan dengan <em>pertimbangan yang sehat.</em>
+    </h1><p>Berlaku sejak 3 Agustus 2026 · Terakhir ditinjau 3 Agustus 2026</p>
+  </section>
+  <article class="shell policy-content">
+    <section>
+      <h2>Penerimaan ketentuan</h2><p>
+        Dengan mengakses situs ini, Anda setuju menggunakan konten secara sah
+        dan tidak mengganggu keamanan, ketersediaan, atau pengalaman pengguna
+        lain.
+      </p>
+    </section><section>
+      <h2>Sifat informasi</h2><p>
+        Konten disediakan untuk tujuan informasi dan pendidikan umum. Meskipun
+        kami berusaha menjaga akurasi, informasi dapat berubah dan tidak selalu
+        sesuai untuk keadaan khusus Anda. Konten bukan nasihat hukum, medis,
+        keuangan, keamanan, atau profesional lainnya.
+      </p>
+    </section><section>
+      <h2>Hak atas konten</h2><p>
+        Kecuali dinyatakan lain, tulisan, desain, dan materi editorial merupakan
+        bagian dari {site.name}. Anda boleh membagikan tautan dan kutipan
+        singkat dengan atribusi yang jelas. Penyalinan substansial, penerbitan
+        ulang penuh, penjualan, atau penghapusan atribusi memerlukan izin
+        tertulis.
+      </p>
+    </section><section>
+      <h2>Tautan dan layanan pihak ketiga</h2><p>
+        Tautan eksternal disediakan sebagai konteks atau rujukan. Kami tidak
+        mengendalikan ketersediaan, keamanan, isi, atau kebijakan layanan pihak
+        ketiga tersebut.
+      </p>
+    </section><section>
+      <h2>Ketersediaan dan perubahan</h2><p>
+        Kami dapat memperbaiki, memperbarui, memindahkan, atau menghentikan
+        konten dan fitur. Tidak ada jaminan bahwa situs akan selalu tersedia
+        tanpa gangguan atau kesalahan.
+      </p>
+    </section><section>
+      <h2>Kontak</h2><p>
+        Pertanyaan mengenai penggunaan konten dapat dikirim melalui <a
+          href={`${import.meta.env.BASE_URL}kontak/`}>halaman Kontak</a
+        >.
+      </p>
+    </section><aside class="legal-disclaimer">
+      Ketentuan ini adalah ketentuan operasional umum dan belum menggantikan
+      peninjauan hukum khusus untuk kebutuhan bisnis atau yurisdiksi tertentu.
+    </aside>
+  </article>
+</Base>

@@ -1,35 +1,87 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import site from '../data/site.json';
+const count = (await getCollection('posts')).length;
 ---
 
 <Base
   title="Tentang"
-  description="Tentang Aixwim Insights dan prinsip editorial kami."
-  ><section class="shell page-head about-head">
-    <span class="eyebrow">Tentang publikasi</span><h1>
-      Pengetahuan yang jernih, <em>berguna, dan bertanggung jawab.</em>
-    </h1><p>{site.description}</p>
-  </section><section class="shell about-grid">
+  description="Mengenal Aixwim Insights, misi, standar editorial, dan komitmen kami kepada pembaca."
+>
+  <section class="shell page-head about-head">
+    <span class="eyebrow">Tentang Aixwim Insights</span><h1>
+      Memahami perubahan dengan <em>pikiran yang lebih jernih.</em>
+    </h1><p>
+      Aixwim Insights adalah publikasi independen berbahasa Indonesia yang
+      membahas teknologi, kreativitas, pembelajaran, dan kehidupan modern secara
+      tenang, praktis, dan bertanggung jawab.
+    </p>
+  </section>
+  <section class="shell about-manifesto">
+    <div>
+      <span class="eyebrow">Mengapa kami hadir</span><h2>
+        Informasi bertambah cepat. Pemahaman tidak selalu mengikutinya.
+      </h2>
+    </div><div>
+      <p>
+        Kami membantu pembaca menyaring keramaian menjadi pengetahuan yang dapat
+        digunakan. Setiap artikel berusaha menjawab satu kebutuhan nyata,
+        memberi konteks yang cukup, dan mengakui batas dari sebuah kesimpulan.
+      </p><p>
+        Kami tidak menerbitkan artikel hanya untuk mengejar tren. Fokus kami
+        adalah tulisan evergreen yang layak disimpan, dibaca kembali, dan
+        diterapkan dalam pekerjaan maupun kehidupan sehari-hari.
+      </p>
+    </div>
+  </section>
+  <section class="shell about-grid">
     <article>
       <span>01</span><h2>People-first</h2><p>
-        Setiap artikel dimulai dari kebutuhan pembaca, bukan mesin pencari.
+        Kebutuhan pembaca menjadi titik awal. SEO membantu penemuan, bukan
+        mengatur isi.
       </p>
     </article><article>
       <span>02</span><h2>Konteks sebelum klaim</h2><p>
-        Kami membedakan fakta, interpretasi, dan pengalaman serta menautkan
-        sumber ketika diperlukan.
+        Kami membedakan fakta, interpretasi, dan pengalaman serta menggunakan
+        sumber primer bila diperlukan.
       </p>
     </article><article>
       <span>03</span><h2>Terbuka untuk koreksi</h2><p>
-        Artikel dapat diperbarui ketika tersedia informasi yang lebih baik.
+        Pengetahuan berubah. Kesalahan diperbaiki secara jelas dan artikel
+        ditinjau ketika konteks berkembang.
       </p>
     </article>
-  </section><section class="shell contact-strip">
+  </section>
+  <section class="shell trust-panel">
+    <div><strong>{count}</strong><span>artikel dalam arsip</span></div><div>
+      <strong>4</strong><span>fokus editorial</span>
+    </div><div>
+      <strong>1</strong><span>standar: berguna bagi pembaca</span>
+    </div>
+  </section>
+  <section class="shell policy-links">
     <div>
-      <span class="eyebrow">Kontak redaksi</span><h2>
-        Punya koreksi atau gagasan?
+      <span class="eyebrow">Transparansi</span><h2>
+        Standar yang dapat diperiksa.
       </h2>
-    </div><a class="button" href={`mailto:${site.email}`}>{site.email} ↗</a>
-  </section></Base
->
+    </div><div>
+      <a href={`${import.meta.env.BASE_URL}kebijakan-editorial/`}
+        >Kebijakan Editorial <span>↗</span></a
+      ><a href={`${import.meta.env.BASE_URL}koreksi/`}
+        >Kebijakan Koreksi <span>↗</span></a
+      ><a href={`${import.meta.env.BASE_URL}privasi/`}
+        >Kebijakan Privasi <span>↗</span></a
+      >
+    </div>
+  </section>
+  <section class="shell contact-strip">
+    <div>
+      <span class="eyebrow">Berbicara dengan redaksi</span><h2>
+        Punya pertanyaan, koreksi, atau gagasan?
+      </h2>
+    </div><a class="button" href={`${import.meta.env.BASE_URL}kontak/`}
+      >Hubungi kami →</a
+    >
+  </section>
+</Base>

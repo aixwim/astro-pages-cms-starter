@@ -581,3 +581,215 @@ a {
     transition: none !important;
   }
 }
+
+/* Institutional and policy pages */
+.footer {
+  align-items: start;
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 50px;
+  position: relative;
+  padding-bottom: 76px;
+}
+.footer-brand > p {
+  max-width: 270px;
+  line-height: 1.5;
+}
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+}
+.footer-nav > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 13px;
+}
+.footer-nav strong {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 6px;
+}
+.footer-nav a {
+  color: var(--muted);
+}
+.footer-nav a:hover {
+  color: var(--ink);
+}
+.footer-copy {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+}
+.about-manifesto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  padding: 20px 0 100px;
+  border-bottom: 1px solid var(--line);
+}
+.about-manifesto h2,
+.policy-links h2 {
+  font: 500 clamp(34px, 4vw, 54px)/1.12 Manrope;
+  letter-spacing: -0.04em;
+  margin: 18px 0;
+}
+.about-manifesto p {
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+.trust-panel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-block: 1px solid var(--line);
+  margin-bottom: 100px;
+}
+.trust-panel > div {
+  padding: 36px 0;
+  display: flex;
+  flex-direction: column;
+}
+.trust-panel > div + div {
+  border-left: 1px solid var(--line);
+  padding-left: 35px;
+}
+.trust-panel strong {
+  font: 500 44px Manrope;
+}
+.trust-panel span {
+  color: var(--muted);
+  font-size: 13px;
+}
+.policy-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  margin-bottom: 100px;
+}
+.policy-links > div:last-child {
+  border-top: 1px solid var(--line);
+}
+.policy-links a {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+}
+.legal-head {
+  max-width: 900px;
+}
+.legal-head > p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 720px;
+}
+.policy-content {
+  max-width: 850px;
+  padding-bottom: 110px;
+}
+.policy-content section {
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+}
+.policy-content h2 {
+  font: 500 30px Manrope;
+  margin: 0 0 15px;
+}
+.policy-content p,
+.policy-content li {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+.policy-content a,
+.legal-note a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.policy-content code {
+  background: #deddd6;
+  color: #0b1020;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.policy-content ol {
+  padding-left: 24px;
+}
+.legal-disclaimer,
+.legal-note {
+  background: #e5e4dd;
+  color: #303645;
+  padding: 24px 28px;
+  border-left: 4px solid var(--ink);
+  line-height: 1.65;
+}
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  padding-bottom: 80px;
+}
+.contact-primary {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 40px;
+}
+.contact-primary > a {
+  font: 500 clamp(24px, 4vw, 40px) Manrope;
+  display: block;
+  margin: 70px 0 25px;
+  overflow-wrap: anywhere;
+}
+.contact-primary p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+.contact-guide {
+  padding: 20px;
+}
+.contact-guide h2 {
+  font: 500 34px Manrope;
+}
+.contact-guide li {
+  padding: 12px 0;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.legal-note {
+  margin-bottom: 90px;
+}
+.legal-note p {
+  margin-bottom: 0;
+}
+@media (max-width: 750px) {
+  .footer,
+  .about-manifesto,
+  .policy-links,
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+  .footer-nav {
+    gap: 18px;
+  }
+  .trust-panel {
+    grid-template-columns: 1fr;
+  }
+  .trust-panel > div + div {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+  }
+  .about-manifesto,
+  .policy-links,
+  .contact-layout {
+    gap: 30px;
+  }
+  .policy-content p,
+  .policy-content li {
+    font-size: 16px;
+  }
+}

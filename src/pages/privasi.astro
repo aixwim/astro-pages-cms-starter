@@ -1,0 +1,71 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+---
+
+<Base
+  title="Kebijakan Privasi"
+  description="Penjelasan mengenai data, penyimpanan lokal, komunikasi email, dan pilihan privasi pembaca Aixwim Insights."
+>
+  <section class="shell page-head legal-head">
+    <span class="eyebrow">Kebijakan Privasi</span><h1>
+      Privasi dijelaskan dengan <em>bahasa yang mudah dipahami.</em>
+    </h1><p>Berlaku sejak 3 Agustus 2026 · Terakhir ditinjau 3 Agustus 2026</p>
+  </section>
+  <article class="shell policy-content">
+    <section>
+      <h2>Ringkasan</h2><p>
+        Aixwim Insights adalah situs statis yang dihosting melalui GitHub Pages.
+        Saat kebijakan ini diterbitkan, kami tidak memasang Google Analytics,
+        jaringan iklan, akun pengguna, komentar, newsletter, atau formulir
+        pengumpulan data pada situs.
+      </p>
+    </section><section>
+      <h2>Data yang digunakan di perangkat Anda</h2><p>
+        Fitur mode terang/gelap menyimpan preferensi tema di penyimpanan lokal
+        browser (<code>localStorage</code>). Nilai ini tetap berada di perangkat
+        dan dapat dihapus melalui pengaturan browser. Situs tidak menggunakan
+        nilai tersebut untuk melacak aktivitas lintas situs.
+      </p>
+    </section><section>
+      <h2>Log teknis dan layanan hosting</h2><p>
+        Permintaan ke situs diproses oleh penyedia hosting GitHub Pages.
+        Penyedia tersebut dapat memproses data teknis seperti alamat IP, waktu
+        permintaan, perangkat, atau informasi keamanan berdasarkan kebijakan dan
+        kebutuhan operasionalnya. Kami tidak menerima dashboard analitik
+        pengunjung dari implementasi situs saat ini.
+      </p>
+    </section><section>
+      <h2>Komunikasi email</h2><p>
+        Jika Anda menghubungi <a href={`mailto:${site.email}`}>{site.email}</a>,
+        alamat email, isi pesan, dan informasi yang Anda sertakan diproses untuk
+        membaca dan menanggapi komunikasi. Jangan mengirim data pribadi
+        sensitif. Pesan dapat disimpan selama masih diperlukan untuk tindak
+        lanjut, keamanan, atau pencatatan korespondensi yang wajar.
+      </p>
+    </section><section>
+      <h2>Tautan eksternal</h2><p>
+        Artikel dapat menautkan situs lain. Kebijakan dan praktik data situs
+        tersebut berada di luar kendali Aixwim Insights; periksa kebijakan
+        mereka sebelum memberikan informasi pribadi.
+      </p>
+    </section><section>
+      <h2>Hak dan permintaan privasi</h2><p>
+        Untuk menanyakan, memperbaiki, atau meminta penghapusan data yang Anda
+        kirim langsung kepada kami, hubungi alamat email di atas dan jelaskan
+        permintaan secara spesifik. Permintaan akan dinilai dengan
+        mempertimbangkan identitas pemohon, kewajiban yang berlaku, dan data
+        yang memang berada dalam kendali kami.
+      </p>
+    </section><section>
+      <h2>Perubahan kebijakan</h2><p>
+        Kebijakan ini akan diperbarui jika fitur atau praktik data berubah.
+        Perubahan material akan ditunjukkan melalui tanggal peninjauan pada
+        halaman ini.
+      </p>
+    </section><aside class="legal-disclaimer">
+      Dokumen ini merupakan penjelasan operasional situs, bukan nasihat hukum
+      atau pengganti konsultasi profesional.
+    </aside>
+  </article>
+</Base>

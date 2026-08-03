@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+---
+
+<Base
+  title="Kontak"
+  description="Hubungi redaksi Aixwim Insights untuk pertanyaan, koreksi, kolaborasi editorial, atau masukan pembaca."
+>
+  <section class="shell page-head legal-head">
+    <span class="eyebrow">Kontak redaksi</span><h1>
+      Percakapan yang baik dimulai dari <em>pesan yang jelas.</em>
+    </h1><p>
+      Kami menerima pertanyaan pembaca, koreksi faktual, usulan topik, dan
+      kolaborasi editorial yang relevan dengan fokus Aixwim Insights.
+    </p>
+  </section>
+  <section class="shell contact-layout">
+    <div class="contact-primary">
+      <span class="eyebrow">Email</span><a href={`mailto:${site.email}`}
+        >{site.email}</a
+      ><p>
+        Kami berusaha membaca setiap pesan. Waktu respons dapat berbeda
+        bergantung pada isi dan kebutuhan verifikasi.
+      </p>
+    </div><div class="contact-guide">
+      <h2>Agar mudah ditindaklanjuti</h2><ol>
+        <li>Gunakan subjek yang spesifik.</li><li>
+          Sertakan URL artikel jika pesan berkaitan dengan tulisan tertentu.
+        </li><li>
+          Untuk koreksi, jelaskan bagian yang dipersoalkan dan lampirkan sumber
+          pendukung.
+        </li><li>
+          Jangan mengirim kata sandi, dokumen identitas, atau data sensitif
+          lain.
+        </li>
+      </ol>
+    </div>
+  </section>
+  <section class="shell legal-note">
+    <strong>Privasi komunikasi</strong><p>
+      Pesan email akan diproses untuk menanggapi keperluan Anda. Baca <a
+        href={`${import.meta.env.BASE_URL}privasi/`}>Kebijakan Privasi</a
+      > untuk informasi lebih lanjut.
+    </p>
+  </section>
+</Base>

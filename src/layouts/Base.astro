@@ -67,15 +67,30 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     </header>
     <main><slot /></main>
     <footer class="shell footer">
-      <div>
-        <a class="brand" href={base}><span>A</span>{site.name}</a><p>
-          {site.tagline}
-        </p>
-      </div><div class="footer-meta">
-        <a href={`${base}tentang/`}>Tentang redaksi</a><a
-          href={`mailto:${site.email}`}>Kontak</a
-        ><p>© {new Date().getFullYear()} {site.name}</p>
+      <div class="footer-brand">
+        <a class="brand" href={base}><span>A</span>{site.name}</a>
+        <p>{site.tagline}</p>
       </div>
+      <div class="footer-nav">
+        <div>
+          <strong>Publikasi</strong>
+          <a href={`${base}insights/`}>Artikel</a>
+          <a href={`${base}tentang/`}>Tentang</a>
+          <a href={`${base}kontak/`}>Kontak</a>
+        </div>
+        <div>
+          <strong>Standar</strong>
+          <a href={`${base}kebijakan-editorial/`}>Editorial</a>
+          <a href={`${base}koreksi/`}>Koreksi</a>
+          <a href={`${base}disclaimer/`}>Disclaimer</a>
+        </div>
+        <div>
+          <strong>Legal</strong>
+          <a href={`${base}privasi/`}>Privasi</a>
+          <a href={`${base}ketentuan/`}>Ketentuan</a>
+        </div>
+      </div>
+      <p class="footer-copy">© {new Date().getFullYear()} {site.name}</p>
     </footer>
     <script is:inline>
       const r = document.documentElement,

@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+---
+
+<Base
+  title="Kebijakan Koreksi"
+  description="Cara Aixwim Insights menerima, menilai, dan menerbitkan koreksi atau pembaruan artikel."
+>
+  <section class="shell page-head legal-head">
+    <span class="eyebrow">Kebijakan Koreksi</span><h1>
+      Akurat ketika terbit. <em>Responsif ketika keliru.</em>
+    </h1><p>Berlaku sejak 3 Agustus 2026 · Terakhir ditinjau 3 Agustus 2026</p>
+  </section>
+  <article class="shell policy-content">
+    <section>
+      <h2>Komitmen kami</h2><p>
+        Kami berusaha memeriksa artikel sebelum diterbitkan. Namun, kesalahan
+        dapat terjadi dan konteks dapat berubah. Koreksi yang didukung bukti
+        akan ditinjau secara serius tanpa memandang siapa yang mengajukannya.
+      </p>
+    </section><section>
+      <h2>Cara mengajukan koreksi</h2><p>
+        Kirim email ke <a
+          href={`mailto:${site.email}?subject=Koreksi%20artikel%20Aixwim%20Insights`}
+          >{site.email}</a
+        > dengan URL artikel, kutipan bagian terkait, alasan koreksi, dan sumber pendukung.
+        Hindari mengirim data sensitif.
+      </p>
+    </section><section>
+      <h2>Proses penilaian</h2><ol>
+        <li>Redaksi memeriksa apakah laporan dapat diverifikasi.</li><li>
+          Sumber asli dan konteks penerbitan ditinjau kembali.
+        </li><li>
+          Jika koreksi diperlukan, isi diperbaiki dengan lingkup yang
+          proporsional.
+        </li><li>
+          Perubahan substantif dapat disertai tanggal pembaruan atau catatan
+          koreksi.
+        </li>
+      </ol>
+    </section><section>
+      <h2>Yang bukan koreksi</h2><p>
+        Perbedaan selera, opini, atau kesimpulan tidak otomatis merupakan
+        kesalahan faktual. Kami tetap dapat mempertimbangkan masukan tersebut
+        untuk memperjelas konteks atau memperbaiki penyajian.
+      </p>
+    </section>
+  </article>
+</Base>
