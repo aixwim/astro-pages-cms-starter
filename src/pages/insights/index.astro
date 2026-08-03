@@ -4,29 +4,45 @@ import Base from '../../layouts/Base.astro';
 const posts = (await getCollection('posts')).sort(
   (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
 );
+const mins = (b = '') =>
+  Math.max(1, Math.ceil(b.trim().split(/\s+/).filter(Boolean).length / 220));
 ---
 
 <Base
-  title="Insights"
-  description="Ideas on design, development, and content operations."
+  title="Artikel"
+  description="Artikel Aixwim Insights tentang teknologi, kreativitas, pembelajaran, dan kehidupan modern."
 >
   <section class="shell page-head">
-    <span class="eyebrow">Insights</span><h1>
-      Notes for building<br /><em>with intention.</em>
-    </h1>
+    <span class="eyebrow">Arsip pengetahuan</span><h1>
+      Temukan gagasan yang <em>relevan.</em>
+    </h1><label class="search-box"
+      ><span class="sr-only">Cari artikel</span><input
+        id="article-search"
+        type="search"
+        placeholder="Cari topik atau kata kunci…"
+      /><kbd>/</kbd></label
+    >
   </section>
-  <section class="shell post-list">
+  <section class="shell post-list" id="article-list">
     {
       posts.map((post) => (
-        <a href={`${import.meta.env.BASE_URL}insights/${post.id}/`}>
+        <a
+          href={`${import.meta.env.BASE_URL}insights/${post.id}/`}
+          data-search={`${post.data.title} ${post.data.description}`.toLowerCase()}
+        >
           <>
-            <time>
-              {post.data.publishedAt.toLocaleDateString('en', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric',
-              })}
-            </time>
+            <div class="story-meta">
+              <>
+                <time>
+                  {post.data.publishedAt.toLocaleDateString('id-ID', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                  })}
+                </time>
+                <span>{mins(post.body)} menit baca</span>
+              </>
+            </div>
             <div>
               <>
                 <h2>{post.data.title}</h2>
@@ -37,6 +53,28 @@ const posts = (await getCollection('posts')).sort(
           </>
         </a>
       ))
-    }
+    }<p class="empty-state" hidden>Tidak ada artikel yang cocok.</p>
   </section>
+  <script>
+    const i = document.querySelector<HTMLInputElement>('#article-search'),
+      a = [...document.querySelectorAll<HTMLElement>('#article-list>a')],
+      e = document.querySelector<HTMLElement>('.empty-state');
+    const f = () => {
+      const q = i?.value.trim().toLowerCase() ?? '';
+      let v = 0;
+      a.forEach((x) => {
+        const m = !q || x.dataset.search?.includes(q);
+        x.hidden = !m;
+        if (m) v++;
+      });
+      if (e) e.hidden = v > 0;
+    };
+    i?.addEventListener('input', f);
+    addEventListener('keydown', (x) => {
+      if (x.key === '/' && document.activeElement !== i) {
+        x.preventDefault();
+        i?.focus();
+      }
+    });
+  </script>
 </Base>

@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+---
+
+<Base
+  title="Tentang"
+  description="Tentang Aixwim Insights dan prinsip editorial kami."
+  ><section class="shell page-head about-head">
+    <span class="eyebrow">Tentang publikasi</span><h1>
+      Pengetahuan yang jernih, <em>berguna, dan bertanggung jawab.</em>
+    </h1><p>{site.description}</p>
+  </section><section class="shell about-grid">
+    <article>
+      <span>01</span><h2>People-first</h2><p>
+        Setiap artikel dimulai dari kebutuhan pembaca, bukan mesin pencari.
+      </p>
+    </article><article>
+      <span>02</span><h2>Konteks sebelum klaim</h2><p>
+        Kami membedakan fakta, interpretasi, dan pengalaman serta menautkan
+        sumber ketika diperlukan.
+      </p>
+    </article><article>
+      <span>03</span><h2>Terbuka untuk koreksi</h2><p>
+        Artikel dapat diperbarui ketika tersedia informasi yang lebih baik.
+      </p>
+    </article>
+  </section><section class="shell contact-strip">
+    <div>
+      <span class="eyebrow">Kontak redaksi</span><h2>
+        Punya koreksi atau gagasan?
+      </h2>
+    </div><a class="button" href={`mailto:${site.email}`}>{site.email} ↗</a>
+  </section></Base
+>

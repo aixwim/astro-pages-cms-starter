@@ -10,7 +10,8 @@
     "check": "astro check",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "sync:drive": "node scripts/sync-google-drive.mjs"
+    "sync:drive": "node scripts/sync-google-drive.mjs",
+    "content:check": "node scripts/validate-content.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
