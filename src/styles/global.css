@@ -935,7 +935,7 @@ a {
 }
 .archive-index {
   font: 500 38px var(--font-display);
-  color: #9a9ca3;
+  color: #5c6270;
 }
 .archive-card__body {
   margin: auto 0;
@@ -1003,6 +1003,9 @@ a {
 :root[data-theme='dark'] .archive-card:not(.archive-card--lead) {
   background: #171d2d;
   color: #f3f2ed;
+}
+:root[data-theme='dark'] .archive-index {
+  color: #c5cad4;
 }
 :root[data-theme='dark'] .archive-card__body p {
   color: #aeb3c0;
