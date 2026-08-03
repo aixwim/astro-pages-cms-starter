@@ -30,6 +30,8 @@ const minutes = Math.max(
 const base = import.meta.env.BASE_URL;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const image = new URL(`${base}${site.socialImage}`, Astro.site);
+const shareTitle = encodeURIComponent(post.data.title);
+const shareUrl = encodeURIComponent(canonical.toString());
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
@@ -129,12 +131,68 @@ const breadcrumbSchema = {
       }
     </header>
     <div class="prose"><Content /></div>
+    <section class="share-panel" aria-labelledby="share-title">
+      <div>
+        <span class="eyebrow">Bagikan wawasan</span>
+        <h2 id="share-title">Bermanfaat untuk orang lain?</h2>
+      </div>
+      <div class="share-actions">
+        <button class="share-native" type="button">Bagikan</button>
+        <a
+          href={`https://wa.me/?text=${shareTitle}%20${shareUrl}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Bagikan melalui WhatsApp">WhatsApp</a
+        >
+        <a
+          href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Bagikan melalui LinkedIn">LinkedIn</a
+        >
+        <a
+          href={`https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Bagikan melalui X">X</a
+        >
+        <a
+          href={`mailto:?subject=${shareTitle}&body=${shareUrl}`}
+          aria-label="Bagikan melalui email">Email</a
+        >
+      </div>
+      <p class="share-feedback sr-only" aria-live="polite"></p>
+    </section>
+
     <footer class="article-footer">
       <p>
         Artikel ini dapat diperbarui ketika tersedia informasi yang lebih baik.
       </p>
       <button class="copy-link" type="button">Salin tautan</button>
     </footer>
+    <section class="comments" id="komentar" aria-labelledby="comments-title">
+      <span class="eyebrow">Ruang pembaca</span>
+      <h2 id="comments-title">Komentar dan diskusi</h2>
+      <p>
+        Komentar dikelola melalui GitHub Discussions. Masuk dengan akun GitHub
+        dan ikuti pedoman percakapan yang saling menghormati.
+      </p>
+      <div class="comments-consent">
+        <p>
+          Konten dari Giscus baru dimuat setelah Anda memilih tombol berikut.
+          GitHub dapat memproses data sesuai kebijakan privasinya.
+        </p>
+        <button class="button load-comments" type="button">Muat komentar</button
+        >
+        <a
+          class="text-link"
+          href="https://github.com/aixwim/astro-pages-cms-starter/discussions"
+          target="_blank"
+          rel="noopener noreferrer">Buka Discussions</a
+        >
+      </div>
+      <div class="giscus-container"></div>
+    </section>
     {
       related.length > 0 && (
         <aside class="related-posts" aria-labelledby="related-title">
@@ -153,6 +211,82 @@ const breadcrumbSchema = {
     }
   </article>
   <script>
+    const nativeShare =
+      document.querySelector<HTMLButtonElement>('.share-native');
+    const shareFeedback =
+      document.querySelector<HTMLElement>('.share-feedback');
+    if (!navigator.share) nativeShare?.setAttribute('hidden', '');
+    nativeShare?.addEventListener('click', async () => {
+      try {
+        await navigator.share({ title: document.title, url: location.href });
+        if (shareFeedback) shareFeedback.textContent = 'Panel berbagi dibuka.';
+      } catch (error) {
+        if (
+          shareFeedback &&
+          error instanceof DOMException &&
+          error.name !== 'AbortError'
+        )
+          shareFeedback.textContent = 'Berbagi dibatalkan atau tidak tersedia.';
+      }
+    });
+
+    const loadComments =
+      document.querySelector<HTMLButtonElement>('.load-comments');
+    const commentsConsent =
+      document.querySelector<HTMLElement>('.comments-consent');
+    const giscusContainer =
+      document.querySelector<HTMLElement>('.giscus-container');
+    const syncGiscusTheme = () => {
+      const iframe = document.querySelector<HTMLIFrameElement>(
+        'iframe.giscus-frame',
+      );
+      iframe?.contentWindow?.postMessage(
+        {
+          giscus: {
+            setConfig: {
+              theme:
+                document.documentElement.dataset.theme === 'dark'
+                  ? 'dark'
+                  : 'light',
+            },
+          },
+        },
+        'https://giscus.app',
+      );
+    };
+    loadComments?.addEventListener('click', () => {
+      if (!giscusContainer || giscusContainer.dataset.loaded === 'true') return;
+      giscusContainer.dataset.loaded = 'true';
+      const giscus = document.createElement('script');
+      const attributes = {
+        src: 'https://giscus.app/client.js',
+        'data-repo': 'aixwim/astro-pages-cms-starter',
+        'data-repo-id': 'R_kgDOTszSrw',
+        'data-category': 'General',
+        'data-category-id': 'DIC_kwDOTszSr84DCmL_',
+        'data-mapping': 'pathname',
+        'data-strict': '1',
+        'data-reactions-enabled': '1',
+        'data-emit-metadata': '0',
+        'data-input-position': 'top',
+        'data-theme':
+          document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light',
+        'data-lang': 'id',
+        'data-loading': 'lazy',
+        crossorigin: 'anonymous',
+        async: 'true',
+      };
+      Object.entries(attributes).forEach(([name, value]) =>
+        giscus.setAttribute(name, value),
+      );
+      giscusContainer.append(giscus);
+      commentsConsent?.setAttribute('hidden', '');
+      new MutationObserver(syncGiscusTheme).observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-theme'],
+      });
+    });
+
     const button = document.querySelector<HTMLButtonElement>('.copy-link');
     button?.addEventListener('click', async () => {
       try {

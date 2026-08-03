@@ -1332,3 +1332,77 @@ input:focus-visible {
     transition: none;
   }
 }
+
+/* Sharing and reader discussion */
+.share-panel {
+  margin: 70px 0 0;
+  padding: 30px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+.share-panel h2 {
+  margin: 8px 0 0;
+  font: 500 25px var(--font-display);
+  color: var(--ink);
+}
+.share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.share-actions a,
+.share-actions button {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 11px 16px;
+  font: 600 12px var(--font-sans);
+  cursor: pointer;
+}
+.share-actions a:hover,
+.share-actions button:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+.comments {
+  margin-top: 90px;
+  padding-top: 55px;
+  border-top: 1px solid var(--line);
+}
+.comments > h2 {
+  margin: 12px 0 14px;
+  font: 500 38px var(--font-display);
+}
+.comments > p,
+.comments-consent p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+.comments-consent {
+  margin-top: 28px;
+  padding: 26px;
+  background: var(--surface);
+}
+.comments-consent .button {
+  margin: 14px 22px 0 0;
+}
+.giscus-container {
+  margin-top: 28px;
+  min-height: 1px;
+}
+@media (max-width: 750px) {
+  .share-panel {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .share-actions {
+    justify-content: flex-start;
+  }
+}
