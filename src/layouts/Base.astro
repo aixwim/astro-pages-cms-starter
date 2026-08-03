@@ -142,6 +142,17 @@ const organizationSchema = {
           href={`${base}tentang/`}
           aria-current={isActive('tentang/') ? 'page' : undefined}>Tentang</a
         >
+        <label class="language-switch">
+          <span class="sr-only">Pilih bahasa</span>
+          <select
+            id="language-select"
+            aria-label="Pilih bahasa"
+            title="Pilih bahasa"
+          >
+            <option value="id" selected>ID</option>
+            <option value="en">EN</option>
+          </select>
+        </label>
         <a
           class="nav-search"
           href={base + 'insights/#article-search'}
@@ -257,6 +268,17 @@ const organizationSchema = {
       });
       addEventListener('resize', () => {
         if (innerWidth > 750) setMenu(false);
+      });
+
+      const languageSelect =
+        document.querySelector<HTMLSelectElement>('#language-select');
+      languageSelect?.addEventListener('change', () => {
+        if (languageSelect.value !== 'en') return;
+        const translated = new URL('https://translate.google.com/translate');
+        translated.searchParams.set('sl', 'id');
+        translated.searchParams.set('tl', 'en');
+        translated.searchParams.set('u', location.href);
+        location.assign(translated);
       });
 
       const backToTop =
