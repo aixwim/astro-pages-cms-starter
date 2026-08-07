@@ -1,4 +1,4 @@
-import { readdir, readFile } from 'node:fs/promises';
+import { access, readdir, readFile } from 'node:fs/promises';
 const dir = new URL('../src/content/posts/', import.meta.url);
 const files = (await readdir(dir)).filter((file) => file.endsWith('.md'));
 const seen = new Set(),
@@ -55,11 +55,18 @@ for (const file of files) {
     errors.push(`${file}: topic tidak dikenal`);
   if (!/^\[[^\]]+(?:,[^\]]+){2,}\]$/.test(front.tags ?? ''))
     errors.push(`${file}: minimal tiga tag wajib diisi`);
-  const expectedImage =
-    'images/posts/' +
-    file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '.webp');
-  if (front.image !== expectedImage)
-    errors.push(`${file}: nama image harus SEO dan sama dengan slug posting`);
+  // Dedupe: beberapa posting boleh berbagi gambar kanonik (hemat bandwidth).
+  // Yang wajib: nama SEO (lowercase, dash, .webp) DAN file benar-benar ada.
+  if (!/^images\/posts\/[a-z0-9-]+\.webp$/.test(front.image))
+    errors.push(`${file}: nama image tidak SEO: ${front.image}`);
+  else {
+    const img = new URL('../public/' + front.image, import.meta.url);
+    try {
+      await access(img);
+    } catch {
+      errors.push(`${file}: image tidak ditemukan: ${front.image}`);
+    }
+  }
 }
 if (files.length < 10)
   errors.push(`Jumlah artikel ${files.length}; minimal 10`);
