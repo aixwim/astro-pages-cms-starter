@@ -5,7 +5,7 @@ publishedAt: 2026-08-03
 category: Teknologi
 topic: ai-teknologi
 tags: [ai, keamanan, privasi, produktivitas, karier]
-image: images/posts/memilih-alat-ai-untuk-pekerjaan.webp
+image: images/posts/cara-menggunakan-ai-dengan-aman.webp
 imageAlt: 'Ilustrasi editorial untuk Kerangka Praktis Memilih Alat AI untuk Pekerjaan'
 featured: false
 seoTitle: 'Kerangka Praktis Memilih Alat AI untuk Pekerjaan'

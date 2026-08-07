@@ -15,7 +15,8 @@
     "taxonomy:sync": "node scripts/enrich-taxonomy.mjs",
     "link:check": "node scripts/check-built-links.mjs",
     "agents:check": "node scripts/validate-agents.mjs",
-    "postinstall": "node scripts/patch-wasi-preopen.mjs"
+    "postinstall": "node scripts/patch-wasi-preopen.mjs",
+    "build:fast": "npm run taxonomy:sync && NODE_OPTIONS=--max-old-space-size=2048 astro build"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

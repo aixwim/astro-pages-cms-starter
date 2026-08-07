@@ -26,14 +26,23 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 function patchFile(rel, replacements) {
   const file = join(root, rel);
-  if (!existsSync(file)) { console.log(`- lewati (tidak ada): ${rel}`); return; }
+  if (!existsSync(file)) {
+    console.log(`- lewati (tidak ada): ${rel}`);
+    return;
+  }
   let src = readFileSync(file, 'utf8');
   let changed = false;
   for (const [label, pattern, rep] of replacements) {
-    if (src.includes(label)) { console.log(`  = sudah ter-patch: ${rel} (${label})`); continue; }
+    if (src.includes(label)) {
+      console.log(`  = sudah ter-patch: ${rel} (${label})`);
+      continue;
+    }
     const isRegex = pattern instanceof RegExp;
     const found = isRegex ? pattern.test(src) : src.includes(pattern);
-    if (!found) { console.log(`  ! pola tak ditemukan: ${rel} (${label})`); continue; }
+    if (!found) {
+      console.log(`  ! pola tak ditemukan: ${rel} (${label})`);
+      continue;
+    }
     src = src.replace(pattern, rep);
     changed = true;
     console.log(`  ✔ ${label}: ${rel}`);
@@ -41,7 +50,9 @@ function patchFile(rel, replacements) {
   if (changed) writeFileSync(file, src);
 }
 
-console.log('== TERMUX-PATCH: WASI preopen "/" -> cwd (satteri & astro compiler) ==');
+console.log(
+  '== TERMUX-PATCH: WASI preopen "/" -> cwd (satteri & astro compiler) ==',
+);
 for (const rel of [
   'node_modules/@bruits/satteri-wasm32-wasi/satteri_napi.wasi.cjs',
   'node_modules/@bruits/satteri-wasm32-wasi/wasi-worker.mjs',
@@ -49,11 +60,13 @@ for (const rel of [
   'node_modules/@astrojs/compiler-binding-wasm32-wasi/wasi-worker.mjs',
 ]) {
   // marker: deteksi state TERPATCH ([__rootDir]: process.cwd()) — bukan komentar
-  patchFile(rel, [[
-    '[__rootDir]: process.cwd()',
-    /\[\s*__rootDir\s*\]\s*:\s*__rootDir\s*,?/g,
-    '[__rootDir]: process.cwd(),',
-  ]]);
+  patchFile(rel, [
+    [
+      '[__rootDir]: process.cwd()',
+      /\[\s*__rootDir\s*\]\s*:\s*__rootDir\s*,?/g,
+      '[__rootDir]: process.cwd(),',
+    ],
+  ]);
 }
 
 console.log('== TERMUX-PATCH: rolldown-wasi tambah preopen "/" -> cwd ==');
@@ -62,17 +75,22 @@ for (const rel of [
   'node_modules/@rolldown/binding-wasm32-wasi/wasi-worker.mjs',
 ]) {
   // marker: deteksi state TERPATCH ("'/': process.cwd()") — bukan komentar
-  patchFile(rel, [[
-    "'/': process.cwd()",
-    /preopens:\s*\{\s*['"]\.['"]\s*:\s*process\.cwd\(\),\s*/g,
-    "preopens: {\n    '.': process.cwd(),\n    '/': process.cwd(),\n",
-  ]]);
+  patchFile(rel, [
+    [
+      "'/': process.cwd()",
+      /preopens:\s*\{\s*['"]\.['"]\s*:\s*process\.cwd\(\),\s*/g,
+      "preopens: {\n    '.': process.cwd(),\n    '/': process.cwd(),\n",
+    ],
+  ]);
 }
 
 console.log('== TERMUX-PATCH: nonaktifkan binding native rolldown (SIGILL) ==');
 {
   const native = join(root, 'node_modules/@rolldown/binding-android-arm64');
-  const disabled = join(root, 'node_modules/@rolldown/binding-android-arm64-DISABLED');
+  const disabled = join(
+    root,
+    'node_modules/@rolldown/binding-android-arm64-DISABLED',
+  );
   if (existsSync(native) && !existsSync(disabled)) {
     renameSync(native, disabled);
     console.log('  ✔ native rolldown android-arm64 dinonaktifkan (rename)');
@@ -82,24 +100,27 @@ console.log('== TERMUX-PATCH: nonaktifkan binding native rolldown (SIGILL) ==');
 }
 
 console.log('== TERMUX-PATCH: vite extractExportsData (guest -> host path) ==');
-patchFile('node_modules/vite/dist/node/chunks/node.js', [[
-  'TERMUX PATCH: normalisasi guest path -> host path (untuk fs.readFileSync di bawah)',
-  `async function extractExportsData(environment, filePath) {
+patchFile('node_modules/vite/dist/node/chunks/node.js', [
+  [
+    'TERMUX PATCH: normalisasi guest path -> host path (untuk fs.readFileSync di bawah)',
+    `async function extractExportsData(environment, filePath) {
 	await init;`,
-  `async function extractExportsData(environment, filePath) {
+    `async function extractExportsData(environment, filePath) {
 	// TERMUX PATCH: normalisasi guest path -> host path (untuk fs.readFileSync di bawah)
 	if (typeof filePath === "string" && filePath.startsWith("/") && !fs.existsSync(filePath)) {
 		const __alt = path.join(process.cwd(), filePath.replace(/^\\/+/, ""));
 		if (fs.existsSync(__alt)) filePath = __alt;
 	}
 	await init;`,
-]]);
+  ],
+]);
 
 console.log('== TERMUX-PATCH: vite write dir -> guest form ==');
-patchFile('node_modules/vite/dist/node/chunks/node.js', [[
-  'TERMUX PATCH: rolldown-wasi butuh dir guest',
-  `		for (const output of arraify(rolldownOptions.output)) res.push(await bundle[options.write ? "write" : "generate"](output));`,
-  `		for (const output of arraify(rolldownOptions.output)) {
+patchFile('node_modules/vite/dist/node/chunks/node.js', [
+  [
+    'TERMUX PATCH: rolldown-wasi butuh dir guest',
+    `		for (const output of arraify(rolldownOptions.output)) res.push(await bundle[options.write ? "write" : "generate"](output));`,
+    `		for (const output of arraify(rolldownOptions.output)) {
 			// TERMUX PATCH: rolldown-wasi butuh dir guest (strip cwd + "/") agar
 			// fs proxy menulis ke lokasi host yang benar (bukan nested duplicate)
 			let __out = output;
@@ -108,13 +129,16 @@ patchFile('node_modules/vite/dist/node/chunks/node.js', [[
 			}
 			res.push(await bundle[options.write ? "write" : "generate"](__out));
 		}`,
-]]);
+  ],
+]);
 
 console.log('== TERMUX-PATCH: astro content virtual module -> virtual id ==');
-patchFile('node_modules/astro/dist/content/vite-plugin-content-virtual-mod.js', [
+patchFile(
+  'node_modules/astro/dist/content/vite-plugin-content-virtual-mod.js',
   [
-    'TERMUX PATCH: kembalikan virtual id',
-    `        if (id === MODULES_MJS_ID) {
+    [
+      'TERMUX PATCH: kembalikan virtual id',
+      `        if (id === MODULES_MJS_ID) {
           const modules = new URL(MODULES_IMPORTS_FILE, settings.dotAstroDir);
           if (fs.existsSync(modules)) {
             return {
@@ -124,7 +148,7 @@ patchFile('node_modules/astro/dist/content/vite-plugin-content-virtual-mod.js', 
           }
           return MODULES_MJS_VIRTUAL_ID;
         }`,
-    `        if (id === MODULES_MJS_ID) {
+      `        if (id === MODULES_MJS_ID) {
           // TERMUX PATCH: kembalikan virtual id (bukan host path) agar
           // rolldown-wasi memuat lewat load hook (host-side readFileSync)
           const modules = new URL(MODULES_IMPORTS_FILE, settings.dotAstroDir);
@@ -133,10 +157,10 @@ patchFile('node_modules/astro/dist/content/vite-plugin-content-virtual-mod.js', 
           }
           return MODULES_MJS_VIRTUAL_ID;
         }`,
-  ],
-  [
-    'TERMUX PATCH: virtual id, bukan host path',
-    `        if (id === ASSET_IMPORTS_VIRTUAL_ID) {
+    ],
+    [
+      'TERMUX PATCH: virtual id, bukan host path',
+      `        if (id === ASSET_IMPORTS_VIRTUAL_ID) {
           const assetImportsFile = new URL(ASSET_IMPORTS_FILE, settings.dotAstroDir);
           if (fs.existsSync(assetImportsFile)) {
             return {
@@ -146,7 +170,7 @@ patchFile('node_modules/astro/dist/content/vite-plugin-content-virtual-mod.js', 
           }
           return ASSET_IMPORTS_RESOLVED_STUB_ID;
         }`,
-    `        if (id === ASSET_IMPORTS_VIRTUAL_ID) {
+      `        if (id === ASSET_IMPORTS_VIRTUAL_ID) {
           // TERMUX PATCH: virtual id (bukan host path)
           const assetImportsFile = new URL(ASSET_IMPORTS_FILE, settings.dotAstroDir);
           if (fs.existsSync(assetImportsFile)) {
@@ -154,18 +178,21 @@ patchFile('node_modules/astro/dist/content/vite-plugin-content-virtual-mod.js', 
           }
           return ASSET_IMPORTS_RESOLVED_STUB_ID;
         }`,
+    ],
   ],
-]);
+);
 
 console.log('== TERMUX-PATCH: astro metadata cache raw path (virtual load) ==');
-patchFile('node_modules/astro/dist/vite-plugin-astro/index.js', [[
-  'TERMUX PATCH: gunakan raw path',
-  `          const filename = normalizePath(normalizeFilename(parsedId.filename, config.root));
+patchFile('node_modules/astro/dist/vite-plugin-astro/index.js', [
+  [
+    'TERMUX PATCH: gunakan raw path',
+    `          const filename = normalizePath(normalizeFilename(parsedId.filename, config.root));
           let compileMetadata = astroFileToCompileMetadata.get(filename);`,
-  `          // TERMUX PATCH: gunakan raw path (guest) — konsisten dengan main
+    `          // TERMUX PATCH: gunakan raw path (guest) — konsisten dengan main
           // module handler (juga raw) agar cache metadata compiler cocok
           const filename = normalizePath(parsedId.filename);
           let compileMetadata = astroFileToCompileMetadata.get(filename);`,
-]]);
+  ],
+]);
 
 console.log('\nSelesai.');

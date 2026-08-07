@@ -5,7 +5,7 @@ publishedAt: 2026-08-03
 category: Kerja Modern
 topic: karier-produktivitas
 tags: [keamanan, produktivitas, karier, kolaborasi]
-image: images/posts/rapat-online-efektif.webp
+image: images/posts/workflow-ai-untuk-produktivitas-kerja.webp
 imageAlt: 'Ilustrasi editorial untuk Panduan Rapat Online yang Singkat, Jelas, dan Menghasilkan Keputusan'
 featured: false
 seoTitle: 'Panduan Rapat Online yang Singkat, Jelas, dan Menghasilkan Keputu'

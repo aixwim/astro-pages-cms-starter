@@ -1,4 +1,5 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 
 const dir = new URL('../src/content/posts/', import.meta.url);
 const topicByCategory = {
@@ -107,7 +108,15 @@ for (const file of (await readdir(dir)).filter((name) =>
       /^topic:.*$/m,
       (line) => line + '\ntags: [' + tags.join(', ') + ']',
     );
-  const image = 'images/posts/' + slug + '.webp';
+  // Pertahankan referensi gambar yang sudah valid (mis. hasil dedupe),
+  // fallback ke slug-based hanya jika file belum ada di public/.
+  const currentImage = /^image:\s*(.+)$/m.exec(front)?.[1]?.trim();
+  const defaultImage = 'images/posts/' + slug + '.webp';
+  const image =
+    currentImage &&
+    existsSync(new URL('../public/' + currentImage, import.meta.url))
+      ? currentImage
+      : defaultImage;
   const imageAlt = 'Ilustrasi editorial untuk ' + title;
   if (/^image:/m.test(front))
     front = front.replace(/^image:.*$/m, 'image: ' + image);

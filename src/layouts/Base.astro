@@ -89,8 +89,16 @@ const organizationSchema = {
         ? 'noindex,follow'
         : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}
     />
-    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#07111f" media="(prefers-color-scheme: dark)" />
+    <meta
+      name="theme-color"
+      content="#f8fafc"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#07111f"
+      media="(prefers-color-scheme: dark)"
+    />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href={base + 'favicon.svg'} />
@@ -134,7 +142,11 @@ const organizationSchema = {
     {
       site.googleAnalyticsId && (
         <>
-          <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+          <link
+            rel="preconnect"
+            href="https://www.googletagmanager.com"
+            crossorigin
+          />
           <link rel="preconnect" href="https://www.google-analytics.com" />
           <script
             async

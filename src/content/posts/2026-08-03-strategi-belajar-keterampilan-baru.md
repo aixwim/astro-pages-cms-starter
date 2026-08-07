@@ -5,7 +5,7 @@ publishedAt: 2026-08-03
 category: Pembelajaran
 topic: belajar-keterampilan
 tags: [keamanan, karier, belajar, keterampilan, kreativitas]
-image: images/posts/strategi-belajar-keterampilan-baru.webp
+image: images/posts/cara-belajar-dengan-ai.webp
 imageAlt: 'Ilustrasi editorial untuk Strategi Belajar Keterampilan Baru di Tengah Jadwal Padat'
 featured: false
 seoTitle: 'Strategi Belajar Keterampilan Baru di Tengah Jadwal Padat'

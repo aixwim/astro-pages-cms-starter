@@ -5,7 +5,7 @@ publishedAt: 2026-08-03
 category: Keamanan
 topic: ai-teknologi
 tags: [keamanan, literasi-digital, teknologi-digital]
-image: images/posts/keamanan-digital-praktis.webp
+image: images/posts/cara-menggunakan-ai-dengan-aman.webp
 imageAlt: 'Ilustrasi editorial untuk Keamanan Digital Sehari-hari: Kebiasaan Kecil yang Mengurangi Risiko'
 featured: false
 seoTitle: 'Keamanan Digital Sehari-hari'
