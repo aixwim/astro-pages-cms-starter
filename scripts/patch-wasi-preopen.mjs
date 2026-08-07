@@ -78,8 +78,17 @@ for (const rel of [
   patchFile(rel, [
     [
       "'/': process.cwd()",
+      // format lama (binding <=1.2.2): preopens: { '.': process.cwd(), ...
       /preopens:\s*\{\s*['"]\.['"]\s*:\s*process\.cwd\(\),\s*/g,
       "preopens: {\n    '.': process.cwd(),\n    '/': process.cwd(),\n",
+    ],
+    [
+      "'/': process.cwd()",
+      // format baru (binding 1.2.3+): preopens: { [__rootDir]: __rootDir, }
+      // di mana __rootDir = parse(cwd).root -> "/" (root Android, EACCES).
+      // Di-patch agar guest "/" terpetakan ke host process.cwd().
+      /preopens:\s*\{\s*\[\s*__rootDir\s*\]\s*:\s*__rootDir\s*,?\s*\}/g,
+      "preopens: {\n    '.': process.cwd(),\n    '/': process.cwd(),\n}",
     ],
   ]);
 }

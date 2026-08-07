@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "npm run taxonomy:sync && NODE_OPTIONS=--max-old-space-size=2048 astro check && NODE_OPTIONS=--max-old-space-size=2048 astro build",
-    "preview": "astro preview",
-    "check": "NODE_OPTIONS=--max-old-space-size=2048 astro check",
+    "dev": "NAPI_RS_FORCE_WASI=true astro dev",
+    "build": "npm run taxonomy:sync && NODE_OPTIONS=--max-old-space-size=2048 NAPI_RS_FORCE_WASI=true astro check && NODE_OPTIONS=--max-old-space-size=2048 NAPI_RS_FORCE_WASI=true astro build",
+    "preview": "NAPI_RS_FORCE_WASI=true astro preview",
+    "check": "NODE_OPTIONS=--max-old-space-size=2048 NAPI_RS_FORCE_WASI=true astro check",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "sync:drive": "node scripts/sync-google-drive.mjs",
@@ -16,18 +16,18 @@
     "link:check": "node scripts/check-built-links.mjs",
     "agents:check": "node scripts/validate-agents.mjs",
     "postinstall": "node scripts/patch-wasi-preopen.mjs",
-    "build:fast": "npm run taxonomy:sync && NODE_OPTIONS=--max-old-space-size=2048 astro build"
+    "build:fast": "npm run taxonomy:sync && NODE_OPTIONS=--max-old-space-size=2048 NAPI_RS_FORCE_WASI=true astro build"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
-    "astro": "^7.1.6",
-    "googleapis": "^174.0.0"
+    "astro": "^7.2.0",
+    "googleapis": "^174.0.1"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.6",
+    "@astrojs/check": "^0.9.10",
     "@astrojs/compiler-binding-wasm32-wasi": "^0.3.2",
     "@bruits/satteri-wasm32-wasi": "0.9.5",
-    "@rolldown/binding-wasm32-wasi": "^1.2.2",
+    "@rolldown/binding-wasm32-wasi": "^1.2.3",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.9.3"
