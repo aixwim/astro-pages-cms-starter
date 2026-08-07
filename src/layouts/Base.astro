@@ -102,6 +102,16 @@ const organizationSchema = {
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href={base + 'favicon.svg'} />
+    {
+      type === 'article' && image && (
+        <link
+          rel="preload"
+          as="image"
+          href={`${base}${asset(image)}`}
+          fetchpriority="high"
+        />
+      )
+    }
     <link
       rel="alternate"
       type="application/rss+xml"

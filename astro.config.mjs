@@ -54,7 +54,7 @@ export default defineConfig({
   vite: {
     plugins: [termuxGuestPathPlugin],
     build: {
-      cssCodeSplit: true,
+      cssCodeSplit: false,
       assetsInlineLimit: 4096,
       chunkSizeWarningLimit: 900,
     },
