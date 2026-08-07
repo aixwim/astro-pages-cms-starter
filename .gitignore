@@ -6,3 +6,6 @@ dist/
 !.env.example
 public/drive/*
 !public/drive/.gitkeep
+
+# Log preview server
+.astro-preview.log
